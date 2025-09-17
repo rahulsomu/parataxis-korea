@@ -1,0 +1,139 @@
+.media-details {
+  min-height: 100vh;
+  padding: 120px 15px 15px 15px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.back-button {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #ffffff26;
+  padding: 20px 0;
+  transition: .3s ease;
+}
+
+.back-button:hover {
+  opacity: .7;
+  text-decoration: underline;
+}
+
+.video-section {
+  margin: 30px 0;
+}
+
+.video-info {
+  margin-top: 24px;
+  padding: 0 16px;
+}
+
+.video-info h1 {
+  color: #8fafc3;
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.video-info .date {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.video-description {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-description p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: pre-line; /* Preserves line breaks in the description */
+}
+
+.related-videos {
+  margin-top: 60px;
+}
+
+.related-videos h2 {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #ffffff26;
+    padding: 20px 0;
+    transition: .3s ease;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.view-all-button {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  transition: .3s ease;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.view-all-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .media-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .video-section h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  
+  .video-section h1 {
+    font-size: 20px;
+  }
+  
+  .related-videos h2 {
+    font-size: 20px;
+  }
+  .video-info{
+    padding: 0;
+  }
+}

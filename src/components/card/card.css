@@ -1,0 +1,131 @@
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+    transform: scale(0.99);
+}
+
+.card-thumbnail {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+}
+
+.card-thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-thumbnail img {
+  transform: scale(1.05);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 147, 160, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.play-button-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.card:hover .play-button {
+  opacity: 1;
+}
+
+.play-button svg {
+  width: 20px;
+  height: 20px;
+  color: white;
+  margin-left: 4px; /* Slight adjustment for the play icon */
+}
+
+.card-content {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  color: #8fafc3;
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  margin: 0 0 16px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-button {
+  margin-top: auto;
+  display: inline-block;
+  padding: 8px 16px;
+  background: #0093a0;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background: #007a85;
+}
+
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  .card-content{
+    padding: 5px;
+  }
+  
+  .play-button {
+    width: 40px;
+    height: 40px;
+    opacity: 1; /* Always visible on mobile */
+  }
+  
+  .play-button svg {
+    width: 16px;
+    height: 16px;
+  }
+}

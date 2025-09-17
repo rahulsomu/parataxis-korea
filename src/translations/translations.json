@@ -1,0 +1,417 @@
+{
+  "navigation": {
+    "about": {
+      "en": "About",
+      "kr": "회사 소개"
+    },
+    "investmentPhilosophy": {
+      "en": "Culture and Philosophy",
+      "kr": "문화와 철학"
+    },
+    "ourDifference": {
+      "en": "Our Difference",
+      "kr": "차별점"
+    },
+    "contact": {
+      "en": "Contact",
+      "kr": "문의하기"
+    },
+    "team": {
+      "en": "Leadership",
+      "kr": "리더십"
+    },
+    "investorRelations": {
+      "en": "Investor Relations",
+      "kr": "투자자 관계"
+    }
+
+  },
+  "hero": {
+    "mainHeading": {
+      "en": "Built on trust. Powered by expertise. Led by operators.",
+      "kr": "신뢰를 바탕으로. 전문성으로 구동. 운영자가 주도."
+    },
+    "scrollButton": {
+      "en": "Scroll to About section",
+      "kr": "회사 소개 섹션으로 스크롤"
+    }
+  },
+  "about": {
+    "sectionNumber": {
+      "en": "01",
+      "kr": "01"
+    },
+    "title": {
+      "en": "About",
+      "kr": "회사 소개"
+    },
+    "paragraph1": {
+      "en": "Parataxis Korea, Inc. (KOSDAQ: 288330) is a publicly listed Bitcoin treasury platform.",
+      "kr": "파라택시스코리아 주식회사(코스닥: 288330)는 국내 최초로 디지털자산 재무전략(Digital Asset Treasury)을 수행하는 코스닥 상장 기업입니다."
+    },
+    "paragraph2": {
+      "en": "As Korea's first institutionally backed Bitcoin treasury company, our team is composed of professionals with deep experience across institutional capital markets, digital assets, risk management, and regulatory policy.",
+      "kr": "당사는 자본시장, 디지털자산, 리스크 관리, 규제 정책 등 다양한 분야에서 풍부한 경험을 보유한 전문가들의 역량을 바탕으로, 디지털자산 재무전략을 통해 장기적인 주주가치 창출이라는 사명을 실현하고자 노력하고 있습니다."
+    },
+    "paragraph3": {
+      "en": "With a commitment to driving long-term shareholder value to investors through an institutional grade platform, Parataxis Korea, Inc. aims to be a leading Bitcoin treasury platform in Korea.",
+      "kr": "파라택시스코리아는 국내 최초의 디지털자산 재무전략 기업을 넘어, 대한민국을 대표하는 디지털자산 리딩기업으로 도약하는 것을 목표로 하고 있습니다."
+    }
+  },
+  "investmentPhilosophy": {
+    "sectionNumber": {
+      "en": "02",
+      "kr": "02"
+    },
+    "title": {
+      "en": "Company Culture and Investment Philosophy",
+      "kr": "기업 문화 및 투자 철학"
+    },
+    "paragraph1": {
+      "en": "We believe the digital asset sector, led by Bitcoin, will continue to see value creation at a massive scale. The industry is at an inflection point of institutional adoption, and digital asset treasuries provide an innovative way to express tailored exposure to the long-term growth trends of the industry.",
+      "kr": "저희는 가상자산이 주도하는 디지털자산 시장이 무한한 성장 잠재력을 지니고 있다고 믿습니다. 현재 디지털자산 업계는 기관 투자자의 본격적인 참여로 중대한 전환점을 맞이하고 있으며, 이는 시장 구조와 성장 패러다임에 근본적인 변화를 예고하고 있습니다."
+    },
+    "paragraph2":{
+      "en" :"Proven operators, with a history of successfully navigating multiple market environments, are critical in developing a leading Bitcoin treasury platform for the long-term.",
+      "kr":"파라택시스 팀은 이러한 변화에 발맞춰, 디지털자산 재무 전략을 통해 시장의 성장 트렌드를 반영한 맞춤형 익스포저를 설계하고, 혁신적인 솔루션을 제시하고자 합니다. 파라택시스코리아는 다양한 시장 환경에서 검증된 전문성을 기반으로, 디지털자산 시장의 혁신을 이끄는 마중물 역할을 성실히 수행하겠습니다."
+    }
+  },
+  "investorRelations": {
+    "sectionNumber": {
+      "en": "04",
+      "kr": "04"
+    },
+    "title": {
+      "en": "Investor Relations",
+      "kr": "투자자 관계"
+    },
+    "links":{
+      "financials": {
+        "en" : "Financials",
+        "kr" : "재무정보"
+      },
+      "press" :{
+        "en":"Press",
+        "kr":"언론"
+      },
+      "publicDisclosures":{
+        "en":"Public FSC Disclosures",
+        "kr":"공개 FSC 공시"
+      },
+      "electronicDisclosures":{
+        "en":"Electronic Notices",
+        "kr":"전자 통지"
+      },
+      "stock":{
+        "en":"Stock Information",
+        "kr":"주식 정보"
+      },
+      "analytics":{
+        "en":"Analytics",
+        "kr":"분석"
+      },
+      "media":{
+        "en":"Media",
+        "kr":"미디어"
+      },
+      "webcasts":{
+        "en":"Webcasts and Presentations",
+        "kr":"웹캐스트 및 발표"
+      }
+
+    }
+  },
+  "ourDifference": {
+    "sectionNumber": {
+      "en": "03",
+      "kr": "03"
+    },
+    "title": {
+      "en": "Our Difference",
+      "kr": "차별점"
+    },
+    "experience": {
+      "title": {
+        "en": "Experience.",
+        "kr": "경험."
+      },
+      "description": {
+        "en": "Our unique combination of having both traditional financial markets and digital asset native experience allows us to manage a Bitcoin treasury strategy with the highest operational and corporate governance standards. With the power of the broader Parataxis platform, Parataxis Korea is well resourced, managed, and operated to execute on its strategy of becoming a leading Bitcoin treasury company.",
+        "kr": "파라택시스코리아의 독보적인 경쟁력은 전통 금융시장과 디지털자산 시장을 모두 아우르는 전문성과 풍부한 경험에 있습니다. 저희는 축적된 노하우를 바탕으로, 디지털자산 재무 전략을 최고 수준의 기업지배구조 기준에 따라 체계적으로 관리하고 있습니다. 또한, 파라택시스코리아는 글로벌기업인 파라택시스의 방대한 리소스와 정교한 관리 시스템 아래 운영되며, 국제 무대에서 검증된 경험과 전문성을 바탕으로 선도적인 디지털자산 재무기업으로 도약하고 있습니다."
+      }
+    },
+    "riskManagement": {
+      "title": {
+        "en": "Risk Management Focus.",
+        "kr": "리스크 관리 중심."
+      },
+      "description": {
+        "en": "We apply proven and proprietary risk management practices from the broader Parataxis platform. As long-time operators in digital assets, our deep understanding of and management of operational, technical, and financial risk-factors serve as a key advantage.",
+        "kr": "우리는 파라택시스에서 독자적으로 개발하고 입증된 리스크 관리 기법을 적용합니다. 디지털 자산 시장에서 오랜 경험을 통해 축적된 운영·기술·재무 리스크 관리 역량은 저희의 핵심 경쟁력입니다."
+      }
+    },
+    "marketAccess": {
+      "title": {
+        "en": "Market Access.",
+        "kr": "시장 접근성."
+      },
+      "description": {
+        "en": "Our longevity and reputation among peers provide deep relationships with key market participants.",
+        "kr": "우리는 오랜 업력과 업계에서 쌓아 온 신뢰를 바탕으로 주요 시장 참여자들과 깊은 파트너십을 형성하고 있습니다."
+      }
+    }
+  },
+  "team": {
+    "sectionNumber": {
+      "en": "03",
+      "kr": "03"
+    },
+    "title": {
+      "en": "Leadership",
+      "kr": "리더십"
+    },
+    "edwardChin" : {
+      "name" : {
+        "en": "Edward Chin",
+        "kr": "에드워드 진"
+      },
+      "designation" : {
+        "en": "Chairman & Inside Director",
+        "kr": "회장 및 내부 이사"
+      },
+      "bio" : {
+        "en": "Edward Chin is the Founder and CEO of Parataxis Holdings, and Co-founder, CEO, and Co-CIO of Parataxis Capital. Prior to Co-Founding Parataxis Capital in 2019, Ed was an investment banker at digital asset merchant bank Galaxy Digital. Before joining the digital asset space, Ed spent over a decade as an investment banker covering the Technology, Media & Telecom sectors, starting his career at Lehman Brothers. Previously, he served as a Captain in the United States Army and was a Fulbright Research Fellow in South Korea. Ed is a graduate of The Wharton School (MBA), Yonsei University (MA) and UC Berkeley (BA).",
+        "kr": "에드워드 진 파라택시스 홀딩스(Parataxis Holdings)의 창립자이자 CEO이며, 파라택시스 캐피탈(Parataxis Capital)의 공동 창립자, CEO 및 공동 최고투자책임자(Co-CIO)입니다. 2019년 파라택시스 캐피탈을 공동 설립하기 전에는 디지털 자산 상업은행인 갤럭시 디지털(Galaxy Digital)에서 투자 은행가로 근무했습니다. 디지털 자산 분야에 진출하기 전에는 10년 이상 투자 은행가로서 기술, 미디어 및 통신(TMT) 분야를 담당했으며, 그의 경력은 리먼 브라더스(Lehman Brothers)에서 시작되었습니다. 그 전에는 미국 육군에서 대위로 복무했고, 대한민국에서 풀브라이트 연구 장학생으로 활동한 경력이 있습니다. 에드는 와튼스쿨(MBA), 연세대학교(석사), UC 버클리(학사)를 졸업했습니다."
+      }
+
+    },
+    "andrewKim" : {
+      "name" : {
+        "en": "Andrew Kim",
+        "kr": "앤드류 김"
+      },
+      "designation" : {
+        "en": "CEO & Representative Director",
+        "kr": "대표이사 (CEO) & 등기이사"
+      },
+      "bio" : {
+        "en": "Andrew Kim is CEO of Parataxis Korea, the first institutionally backed BTC treasury platform in Korea. Andrew Kim was previously a Partner at Parataxis Capital and Parataxis Holdings (collectively, “Parataxis”), a US based digital asset investment firm. Prior to joining Parataxis, Andrew was a partner at a family office, managing digital asset trading and mining infrastructure investments. Before entering the digital asset space, Andrew held an operator role at AuditBoard ($3 billion+ private equity exit), helping scale the business from $10 million in revenue to $100 million in revenue. Prior to his operating role, Andrew was a research analyst at Ares Management, a global alternative asset manager with over $500 billion in AUM, and an investment banker at Credit Suisse and Jefferies. Andrew is a graduate of New York University (BS, Finance).",
+        "kr": "앤드류 김은 한국 최초의 기관 지원 비트코인(BTC) 트레저리 플랫폼인 파라택시스 코리아(Parataxis Korea)의 대표이사입니다. 그는 이전에 미국 기반 디지털 자산 투자사인 파라택시스 캐피탈(Parataxis Capital) 및 파라택시스 홀딩스(Parataxis Holdings)(총칭하여 “파라택시스”)의 파트너로 활동했습니다. 파라택시스 합류 전에는 패밀리 오피스에서 파트너로 재직하며 디지털 자산 트레이딩 및 채굴 인프라 투자 업무를 총괄했습니다. 디지털 자산 분야 진출 이전에는 AuditBoard에서 운영 책임자로 근무하며, 회사를 연 매출 1,000만 달러에서 1억 달러 규모로 성장시키는 데 기여했습니다 (AuditBoard는 이후 30억 달러 이상의 사모펀드 매각 성과 달성). 그 전에는 AUM 5천억 달러 이상의 글로벌 대체 자산 운용사인 아레스 매니지먼트(Ares Management)에서 리서치 애널리스트로 근무했으며, 크레디트 스위스(Credit Suisse) 및 제프리스(Jefferies)에서 투자은행 업무를 수행했습니다. 앤드류 김은 뉴욕대학교(New York University)에서 금융학 학사(BS, Finance)를 취득했습니다."
+      }
+
+    },
+    "jamesLee" : {
+      "name" : {
+        "en": "James Lee",
+        "kr": "제임스 리"
+      },
+      "designation" : {
+        "en": "Inside Director",
+        "kr": "내부 이사"
+      },
+      "bio" : {
+        "en": "James Lee is a serial entrepreneur who most recently founded Bridge Biotherapeutics in 2015, and took the company public in 2019. He previously founded Rexbio Inc, a biotech focused on therapeutics and diagnostics for the treatment of pancreatic cancer. Prior to Rexbio, James co-founded CrystalGenomics a KOSDAQ listed biotech firm focused on the treatment of arthritis. Prior to being an entrepreneur, James held several roles including Deputy GM at LG Life Sciences. James is a graduate of Seoul National University (BS, Chemistry and MS, Protein Biochemistry).",
+        "kr": "제임스 리는 연쇄 창업가로, 가장 최근에는 2015년에 브릿지 바이오테라퓨틱스(Bridge Biotherapeutics)를 창립하고, 2019년에 회사를 상장시켰습니다. 그 이전에는 췌장암 치료를 위한 치료제 및 진단 기술에 집중한 바이오텍 기업 렉스바이오(Rexbio Inc)를 설립했으며, 그보다 앞서서는 관절염 치료에 중점을 둔 코스닥 상장 바이오 기업 크리스탈지노믹스(CrystalGenomics)의 공동 창립자였습니다. 창업 이전에는 LG생명과학에서 부총괄(DG, Deputy GM)을 포함한 여러 직책을 역임했습니다. 제임스는 서울대학교에서 화학 학사 및 단백질 생화학 석사 학위를 취득했습니다."
+      }
+
+    },
+    "joonKeeHong" : {
+      "name" : {
+        "en": "Joonkee Hong",
+        "kr": "준기 홍"
+      },
+      "designation" : {
+        "en": "Outside Director",
+        "kr": "사외 이사"
+      },
+      "bio" : {
+        "en": "Joonkee leads Vogo Fund Labs, which serves as the innovation lab of Vogo Fund Asset Management, a leading private alternative asset manager with approximately $9 billion in assets under management. Before Vogo Fund, he was Head of Korea and Asia for Cumberland DRW, a global digital assets trading firm. Joonkee offers prior board experience, having served as an independent board director of KakaoBank. He is also currently an auditor for Hashed Ventures. Prior to his digital assets career, he was Korea country head for UBS Group, Asia Head of Global Finance at Nomura, and Asia Head of Global Finance at Lehman Brothers. Joonkee has also served in various economic and policy advisory roles for government offices such as the President Office (“Blue House”), MoEF (Ministry of Economy and Finance), FSS (Financial Supervisory Service) and Bank of Korea (the central bank). Joonkee is a graduate of MIT (SB and SM in engineering, and MBA).",
+        "kr": "준기 홍은 약 90억 달러의 운용 자산을 보유한 선도적인 사모 대체 자산 운용사인 보고펀드자산운용(Vogo Fund Asset Management)의 혁신 연구소인 보고펀드랩스(Vogo Fund Labs)를 이끌고 있습니다. 이전에는 글로벌 디지털 자산 트레이딩 기업인 커벌랜드 DRW(Cumberland DRW)에서 한국 및 아시아 지역 총괄을 역임했습니다. 준기 홍은 과거 카카오뱅크의 사외이사로 활동한 경험이 있으며, 현재는 해시드벤처스(Hashed Ventures)의 감사로도 재직 중입니다. 디지털 자산 분야에 진출하기 전에는 UBS 그룹의 한국 대표, 노무라(Nomura) 및 리먼 브라더스(Lehman Brothers)에서 아시아 지역 글로벌 금융 총괄을 맡았습니다. 또한 대통령실(청와대), 기획재정부(MoEF), 금융감독원(FSS), 한국은행 등 정부기관의 경제 및 정책 자문 역할을 수행한 경력이 있습니다. 준기 홍은 MIT(매사추세츠공과대학교)에서 공학 학사 및 석사, 그리고 MBA를 취득했습니다."
+      }
+
+    },
+    "anthonyChoi" : {
+      "name" : {
+        "en": "Anthony Choi",
+        "kr": "앤서니 최"
+      },
+      "designation" : {
+        "en": "Outside Director",
+        "kr": "사외 이사"
+      },
+      "bio" : {
+        "en": "Anthony is a Senior Foreign Attorney at Shin & Kim with extensive experienced in cross-border M&A transactions and capital raising. His specialty includes advising global private equity and investment firms in domestic investment in Korea; Given his bicultural and bilingual differentiator Anthony has a unique advantage in cross-border transactions. Anthony was previously and attorney at Yulchon LLC, Kim & Chang, Simpson Thacher & Bartlett LLP, and Asiana Airlines Inc. Anthony is a seasoned board member serving as outside director of  TEST TECH Co., Ltd, NOROO Paint & Coatings Co., Ltd, KISG (Korea Institute for Shared Growth), and Monalisa Co., Ltd. Anthony is a graduate of Georgetown University Law Center (JD, cum laude) and Seoul National University (BA).",
+        "kr": "앤서니 최는 법무법인 세종(Shin & Kim)의 외국변호사로, 국경 간 M&A 및 자본 조달 거래에 있어 풍부한 경험을 보유하고 있습니다. 그는 글로벌 사모펀드 및 투자 회사의 국내 투자 자문을 전문으로 하며, 양문화 및 이중언어 역량을 바탕으로 국경 간 거래에서 독보적인 강점을 지니고 있습니다. 과거에는 법무법인 율촌(Yulchon LLC), 김앤장 법률사무소(Kim & Chang), 심슨 대처 앤 바틀렛(Simpson Thacher & Bartlett LLP), 아시아나항공에서 근무한 경력이 있습니다. 또한, TEST TECH㈜, 노루페인트, 동반성장연구원(KISG), 모나리자㈜의 사외이사로 활동하며 다양한 이사회 경험을 쌓았습니다. 앤서니는 조지타운대학교 로스쿨(Georgetown University Law Center, JD, 우등 졸업)과 서울대학교(학사)를 졸업했습니다."
+      }
+
+    },
+    "hyunIlHwang" : {
+      "name" : {
+        "en": "Hyun-il Hwang",
+        "kr": "황현일"
+      },
+      "designation" : {
+        "en": "Statutory Auditor",
+        "kr": "감사"
+      },
+      "bio" : {
+        "en": "Hyun-il Hwang is a Partner at Shin & Kim, with extensive experience in capital markets and securities regulation. Prior to joining Shin & Kim, he was an officer at the Capital Market Investigation Unit of the Financial Services Commission (FSC). Prior to joining the FSC, he was at Samsung Securities. Hyun-il currently serves as Vice President of the Council of Financial Lawyers of the Korean Bar Association, an auditor of the Korea Fintech Industry Association, and a member of the Korea Exchange’s Examination Committee for Listing on KOSDAQ Market. Hyun-il is a graduate of Sogang Law School (JD) and Korea University (BA, Politics)",
+        "kr": "황현일은 자본시장 및 증권 규제 분야에서 폭넓은 경험을 보유한 법무법인 세종(Shin & Kim)의 파트너 변호사입니다. 세종에 합류하기 전에는 금융위원회 자본시장조사단에서 근무했으며, 그 이전에는 삼성증권에서 재직한 경력이 있습니다. 현재 그는 대한변호사협회 금융법률연구회 부회장, 한국핀테크산업협회 감사, 한국거래소 코스닥시장 상장심사위원회 위원으로 활동하고 있습니다. 황현일은 서강대학교 법학전문대학원(JD)과 고려대학교 정치외교학과(학사)를 졸업했습니다."
+      }
+
+    }
+
+  },
+  "contact": {
+    "title": {
+      "en": "Contact",
+      "kr": "문의하기"
+    },
+    "generalInquiries": {
+      "title": {
+        "en": "General Inquiries",
+        "kr": "일반 문의"
+      },
+      "email": {
+        "en": "info@parataxis.co.kr",
+        "kr": "info@parataxis.co.kr"
+      }
+    },
+    "investorRelations": {
+      "title": {
+        "en": "Investor Relations",
+        "kr": "투자자 관계"
+      },
+      "email": {
+        "en": "investor@parataxis.co.kr",
+        "kr": "investor@parataxis.co.kr"
+      }
+    },
+    "address": {
+      "title": {
+        "en": "Parataxis Korea, Inc.",
+        "kr": "Parataxis Korea, Inc."
+      },
+      "street": {
+        "en": "Suite 303, C’s Tower, 58, Pangyo-ro 255 beon-gil, Bundang-gu, Seongnam-si, Gyeonggi-do, 13486 South Korea",
+        "kr": "경기도 성남시 분당구 판교로 255번길 58 씨즈타워 303호, 13486"
+      }
+    }
+  },
+  "footer": {
+    "definition": {
+      "title": {
+        "en": "Parataxis:",
+        "kr": "Parataxis (병렬법):"
+      },
+      "text": {
+        "en": "A literary technique in which two starkly dissimilar pieces of information are juxtaposed without a clear connection, requiring observers to make their own connections.",
+        "kr": "서로 뚜렷하게 다른 두 정보를 명확한 연결어 없이 병치하여 나열하는 문학 기법으로, 독자나 관찰자가 스스로 그 의미적 연결고리를 만들어 내도록 요구합니다."
+      }
+    },
+    "links": {
+      "linkedin": {
+        "en": "LinkedIn",
+        "kr": "링크드인"
+      },
+      "disclosures": {
+        "en": "Disclosures",
+        "kr": "공시사항"
+      }
+    },
+    "copyright": {
+      "text": {
+        "en": "© 2025 Parataxis Capital",
+        "kr": "© 2025 Parataxis Capital"
+      },
+      "rights": {
+        "en": "All Rights Reserved.",
+        "kr": "All Rights Reserved."
+      }
+    }
+  },
+  "buttons" :{
+    "viewAll":{
+      "en":"View All",
+      "kr":"전체 보기"
+    },
+    "download" : {
+      "en" : "Download",
+      "kr" : "다운로드"
+    },
+    "readBio" : {
+      "en" : "Read Bio",
+      "kr" : "소개 읽기"
+    },
+    "backToHome" : {
+      "en" : "Back to Home",
+      "kr" : "홈페이지로 돌아가기"
+    },
+    "readMore" : {
+      "en" : "Read More",
+      "kr" : "자세히 보기"
+    },
+    "newest" : {
+      "en" : "Newest",
+      "kr" : "최신순"
+    },
+    "oldest" : {
+      "en" : "Oldest",
+      "kr" : "오래된순"
+    },
+    "backToMedia" : {
+      "en" : "Back to Media",
+      "kr" : "미디어로 돌아가기"
+    },
+     "backToWebcasts" : {
+      "en" : "Back to Webcasts and Presentations",
+      "kr" : "웹캐스트 및 발표 자료로 돌아가기"
+    },
+    "moreVideos" : {
+      "en" : "View more videos",
+      "kr" : "영상 더 보기"
+    },
+    "viewAllMedia" : {
+      "en" : "View all videos",
+      "kr" : "영상 전체 보기"
+    },
+     "viewAllWebcasts" : {
+      "en" : "View all Webcasts and Presentations",
+      "kr" : "모든 웹캐스트 및 발표 자료 보기"
+    },
+    "watchNow" : {
+      "en" : "Watch Now",
+      "kr" : "지금 보기"
+    }
+  },
+  "pressDetails":{
+    "title":{
+      "en" : "News",
+      "kr" : "뉴스"
+    }
+  },
+  "publicDisclosures":{
+    "title":{
+      "en" : "Public FSC Disclosures",
+      "kr" : "금융위원회 공시"
+    }
+  },
+  "electronicDisclosures":{
+    "title":{
+        "en":"Electronic Notices",
+        "kr":"전자 통지"
+    }
+  },
+  "media":{
+    "title":{
+        "en":"Media",
+        "kr":"미디어"
+    }
+  },
+  "webcasts":{
+    "title":{
+        "en":"Webcasts and Presentations",
+        "kr":"웹캐스트 및 발표"
+    }
+  }
+} 
