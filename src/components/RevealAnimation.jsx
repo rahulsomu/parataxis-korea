@@ -1,24 +1,24 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
-const RevealAnimation = ({ 
-  children, 
-  direction = 'up', 
+const RevealAnimation = ({
+  children,
+  direction = "up",
   delay = 0,
   duration = 0.5,
-  distance = 50 
+  distance = 50,
 }) => {
   const getInitial = () => {
     switch (direction) {
-      case 'up':
+      case "up":
         return { y: distance, opacity: 0 };
-      case 'down':
+      case "down":
         return { y: -distance, opacity: 0 };
-      case 'left':
+      case "left":
         return { x: -distance, opacity: 0 };
-      case 'right':
+      case "right":
         return { x: distance, opacity: 0 };
-      case 'fade':
+      case "fade":
         return { opacity: 0 };
       default:
         return { y: distance, opacity: 0 };
@@ -27,13 +27,13 @@ const RevealAnimation = ({
 
   const getAnimate = () => {
     switch (direction) {
-      case 'up':
-      case 'down':
+      case "up":
+      case "down":
         return { y: 0, opacity: 1 };
-      case 'left':
-      case 'right':
+      case "left":
+      case "right":
         return { x: 0, opacity: 1 };
-      case 'fade':
+      case "fade":
         return { opacity: 1 };
       default:
         return { y: 0, opacity: 1 };
@@ -50,10 +50,11 @@ const RevealAnimation = ({
         delay: delay,
         ease: [0.25, 0.1, 0.25, 1], // Smooth easing function
       }}
+      style={{ width: "100%" }}
     >
       {children}
     </motion.div>
   );
 };
 
-export default RevealAnimation; 
+export default RevealAnimation;

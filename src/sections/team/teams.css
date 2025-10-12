@@ -1,199 +1,203 @@
 .teams-container {
-    padding: 40px 0;
-  }
-  
-  .teams-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 30px;
-  }
-  
-  .teams-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 40px;
-    margin: 0 auto;
-  }
-  
-  .team-card {
-    border: 1px solid transparent;
-    transition: 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    cursor: pointer;
-    background: linear-gradient(to bottom, rgba(2, 19, 34, 0.7), rgba(2, 19, 34, 0.85));
-  }
-  
-  .team-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: scale(0.99);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-  .image-wrapper{
-    position: relative;
-  }
+  padding: 40px 0;
+}
 
-  .image-wrapper::before {
-    content: "";
-    position: absolute;
-    inset: 0;
+.teams-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin: 0 auto;
+}
+
+.team-card {
+  border: 1px solid transparent;
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 19, 34, 0.7),
+    rgba(2, 19, 34, 0.85)
+  );
+}
+
+.team-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0.99);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.team-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.team-name {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: left;
+  padding: 10px;
+}
+
+.team-designation {
+  font-size: 18px;
+  color: #8fafc3;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.read-more-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0 0 0 / 86%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.modal-content {
+  background-color: rgba(2, 19, 34, 0.95);
+  padding: 20px;
+  position: relative;
+  display: flex;
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+}
+.info,
+.top-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+}
+.top-info {
+  display: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #fff;
+  height: 40px;
+  width: 40px;
+  z-index: 9999;
+}
+
+.modal-image {
+  width: 250px;
+  aspect-ratio: 1/1;
+  margin-bottom: 15px;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.modal-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.modal-designation {
+  color: #8fafc3;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.modal-bio {
+  font-size: 14px;
+  color: #e0e0e0;
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .teams-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
-  .team-image {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    filter: grayscale(100%);
-  }
-  
-  .team-name {
-    font-size: 22px;
-    font-weight: 600;
-    text-align: left;
+  .modal-content {
+    flex-direction: column;
     padding: 10px;
   }
-  
-  .team-designation {
-    font-size: 18px;
-    color: #8fafc3;
-    text-align: left;
-    padding:0 10px;
-  }
-  
-  .read-more-btn {
-    background-color: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    padding:10px;
-  }
-  
-  .read-more-btn:hover {
-   text-decoration: underline;
-  }
-  
-  /* Modal */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgb(0 0 0 / 86%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-  }
-  
-  .modal-content {
-    background-color: rgba(2, 19, 34, 0.95);
-    padding: 20px;
-    position: relative;
-    display: flex;
-    max-width: 1000px;
-    width: 90%;
-    margin: 0 auto;
-}
-.info,.top-info{
-    display: flex;
-    flex-direction: column;
-   justify-content: flex-start;
-    align-items: flex-start;
-    padding: 20px;
-}
-.top-info{
-    display: none;
-}
-  
-.close-btn {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    background: transparent;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: #fff;
-    height: 40px;
-    width: 40px;
-}
-  
   .modal-image {
-    width: 250px;
-    aspect-ratio: 1/1;
-    margin-bottom: 15px;
-    object-fit: cover;
-    filter: grayscale(100%);
+    width: 150px;
   }
-  
-  .modal-name {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 5px;
+  .modal-top-section {
+    display: flex;
   }
-  
-  .modal-designation {
-    color: #8fafc3;
-    margin-bottom: 10px;
-    font-size: 18px;
+  .info .modal-name {
+    display: none;
   }
-  
+  .info .modal-designation {
+    display: none;
+  }
+  .top-info {
+    display: flex;
+  }
   .modal-bio {
-    font-size: 14px;
-    color: #e0e0e0;
-    text-align: justify;
+    max-height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
   }
-
-  @media (max-width: 768px) {
-    .teams-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    .modal-content{
-        flex-direction: column;
-        padding: 10px;
-    }
-    .modal-image{
-        width: 150px;
-    }
-    .modal-top-section{
-        display: flex;
-    }
-    .info .modal-name{
-        display: none;
-    }
-    .info .modal-designation{
-        display: none;
-    }
-    .top-info {
-        display: flex;
-    }
-    .modal-bio{
-        max-height: 400px;
-        overflow: hidden;
-        overflow-y: scroll;
-
-    }
-    .info{
-        padding: 5px;
-    }
-
+  .info {
+    padding: 5px;
   }
+}
 
-  @media (max-width: 550px) {
-    .teams-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    .top-info{
-        padding: 10px;
-    }
-   .top-info .modal-name{
+@media (max-width: 550px) {
+  .teams-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .top-info {
+    padding: 10px;
+  }
+  .top-info .modal-name {
     font-size: 18px;
-   }
-   .top-info .modal-designation{
-    font-size: 14px;
-   }
   }
+  .top-info .modal-designation {
+    font-size: 14px;
+  }
+}

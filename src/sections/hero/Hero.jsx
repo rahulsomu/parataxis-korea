@@ -14,14 +14,22 @@ const Hero = () => {
   return (
     <section className="hero-section">
       <video
+        fetchPriority="high"
         autoPlay
         muted
         loop
         playsInline
         className="hero-video"
-        poster={'https://parataxis.sfo2.digitaloceanspaces.com/Photos/poster.jpeg'}
+        poster={
+          "https://parataxis.sfo2.digitaloceanspaces.com/Photos/poster.jpeg"
+        }
       >
-        <source src={'https://parataxis.sfo2.digitaloceanspaces.com/Photos/red-maples-at-the-mouth-of-a-stream-in-seoroksan-n-1080p-2025-06-09-05-41-27-utc.mov'} type="video/mp4" />
+        <source
+          src={
+            "https://parataxis.sfo2.digitaloceanspaces.com/Photos/red-maples-at-the-mouth-of-a-stream-in-seoroksan-n-1080p-2025-06-09-05-41-27-utc.mov"
+          }
+          type="video/mp4"
+        />
       </video>
       <div className="overlay"></div>
       <div className="hero-content">
