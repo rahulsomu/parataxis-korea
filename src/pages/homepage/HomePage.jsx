@@ -8,7 +8,6 @@ import Contact from "../../sections/contact/Contact";
 import InvestmentPhilosphy from "../../sections/investment-philosphy/InvestmentPhilosphy";
 import { useLocation } from "react-router-dom";
 import Modal from "../../components/modal/Modal";
-import "./homepage.css";
 import EmailPopup from "../../components/emailPopup/EmailPopup";
 
 const HomePage = () => {
