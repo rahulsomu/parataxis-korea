@@ -1,70 +1,90 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { useTranslation } from "../../context/TranslationContext";
-import axios from 'axios';
-import { mediaApiUrl } from '../../constants';
+import axios from "axios";
+import { dashboardMediaGetAllApiUrl } from "../../constants";
 import Loader from "../../components/loader/Loader";
 import { MdError } from "react-icons/md";
 import Dropdown from "../../components/dropdown/Dropdown";
-import './media.css'
-import MediaItem from '../../components/mediaItem/MediaItem';
+import "./media.css";
+import MediaItem from "../../components/mediaItem/MediaItem";
 
-const Media = ({heading}) => {
-    const { translate } = useTranslation();
-    const [list, setList] = useState({
-        fetching: false,
-        success: false,
-        data: [],
-        error: null,
-      });
-      const location = useLocation();
-      const { pageNo = 1 } = location.state || {};
-      const [pageNumber, setPageNumber] = useState(pageNo);
-      const order = sessionStorage.getItem('sort')
-      const [sortOrder, setSortOrder] = useState(order || "Newest");
+const Media = ({ heading }) => {
+  const { translate } = useTranslation();
+  const [list, setList] = useState({
+    fetching: false,
+    success: false,
+    data: [],
+    error: null,
+  });
+  const location = useLocation();
+  const { pageNo = 1 } = location.state || {};
+  const [pageNumber, setPageNumber] = useState(pageNo);
+  const order = sessionStorage.getItem("sort");
+  const [sortOrder, setSortOrder] = useState(order || "Newest");
 
-      const fetchData = async () => {
-        setList({ ...list, fetching: true, success: false, data: [], error: null });
-        try {
-          let params = {
-            limit: 10,
-            page: pageNumber,
-            sort: sortOrder === "Newest" ? 1 : 0,
-          };
-          const url = mediaApiUrl(params);
-          const response = await axios.get(url);
-          if (response.status === 200) {
-            setList({ ...list, fetching: false, success: true, error: null });
-            if (response.data && response.data.data) {
-              setList({ ...list, success: true, data: response.data });
-            }
+  function isValidJSON(str) {
+    try {
+      JSON.parse(str);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  const fetchData = async () => {
+    setList({ ...list, fetching: true, success: false, data: [], error: null });
+    try {
+      let params = {
+        limit: 10,
+        page: pageNumber,
+        sort: sortOrder === "Newest" ? 1 : 0,
+      };
+      const url = dashboardMediaGetAllApiUrl(params);
+      const response = await axios.get(url);
+      if (response.status === 200) {
+        setList({ ...list, fetching: false, success: true, error: null });
+        // if (response.data && response.data.data) {
+        //   setList({ ...list, success: true, data: response.data });
+        // }
+        if (response.status === 200) {
+          setList({ ...list, fetching: false, success: true, error: null });
+          if (response.data) {
+            const data = response.data
+              ?.filter((item) => isValidJSON(item.data))
+              .map((item) => ({
+                ...JSON.parse(item.data),
+                id: item.id,
+              }));
+            setList({ ...list, success: true, data: { data: data } });
           }
-        } catch (error) {
-            console.error(error, "error");
-            setList({ ...list, fetching: false, data: [], error: true });
         }
-      };
-      const handleDropdown = (value) => {
-        sessionStorage.setItem('sort',value)
-        setSortOrder(value);
-      };
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        fetchData();
-      }, [pageNumber, sortOrder]);
-
+      }
+    } catch (error) {
+      console.error(error, "error");
+      setList({ ...list, fetching: false, data: [], error: true });
+    }
+  };
+  const handleDropdown = (value) => {
+    sessionStorage.setItem("sort", value);
+    setSortOrder(value);
+  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    fetchData();
+  }, [pageNumber, sortOrder]);
 
   return (
     <section className="press-page">
-    <Link to="/" className="view-all">
-      <FaArrowLeft />
-      {`${translate("buttons.backToHome")}`}
-    </Link>
-    <div className="heading">
-      <h1>{`${translate('media.title')}`}</h1>
-    </div>
-    <div className="content">
+      <Link to="/" className="view-all">
+        <FaArrowLeft />
+        {`${translate("buttons.backToHome")}`}
+      </Link>
+      <div className="heading">
+        <h1>{`${translate("media.title")}`}</h1>
+      </div>
+      <div className="content">
         {list.fetching ? (
           <div className="loader">
             <Loader />
@@ -73,7 +93,7 @@ const Media = ({heading}) => {
           <div className="list-container">
             {list?.data?.data && list?.data?.data?.length > 0 ? (
               <>
-                <Dropdown value={sortOrder} onChange={handleDropdown}/>
+                <Dropdown value={sortOrder} onChange={handleDropdown} />
                 <div className="media-grid">
                   {list.data?.data?.map((item) => (
                     <MediaItem
@@ -116,8 +136,8 @@ const Media = ({heading}) => {
           </div>
         )}
       </div>
-  </section>
-  )
-}
+    </section>
+  );
+};
 
-export default Media
+export default Media;

@@ -98,7 +98,7 @@ const DashboardList = ({ heading }) => {
       <Link to="/dashboard" className="view-all">
         <FaArrowLeft />
         {/* {`${translate("buttons.backToHome")}`} */}
-        Back to Dashboard
+        {translate("buttons.backToDashboard")}
       </Link>
       <div className="heading">
         <h1>{`${translate(

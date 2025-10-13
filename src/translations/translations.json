@@ -382,7 +382,16 @@
     "watchNow" : {
       "en" : "Watch Now",
       "kr" : "지금 보기"
+    },
+    "backToDashboard" : {
+      "en" : "Back to Dashboard",
+      "kr" : "대시보드로 돌아가기"
+    },
+    "dashboard" : {
+      "en" : "Dashboard",
+      "kr" : "대시보드"
     }
+    
   },
   "pressDetails":{
     "title":{

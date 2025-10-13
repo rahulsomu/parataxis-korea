@@ -10,9 +10,12 @@
   padding: 120px 15px 15px 15px;
 }
 .dashboard h1 {
-  text-align: left;
+  text-align: center;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  font-size: 60px;
+  font-weight: bold;
+  color: #677e8e;
 }
 .dashboard-grid {
   display: flex;
@@ -50,6 +53,10 @@
 @media (max-width: 600px) {
   .dashboard {
     justify-content: unset;
+  }
+  .dashboard h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
   }
   .dashboard-grid {
     display: grid;

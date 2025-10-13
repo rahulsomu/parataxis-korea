@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./press.css";
 import Loader from "../../components/loader/Loader";
-import { ElectronicDisclosuresApiUrl, pressApiUrl, publicDisclosuresApiUrl, webcastsApiUrl } from "../../constants";
+import {
+  dashboardPressGetAllApiUrl,
+  ElectronicDisclosuresApiUrl,
+  dashboardElectronicDisclosuresGetAllApiUrl,
+  dashboardPublicDisclosuresGetAllApiUrl,
+  dashboardWebcastsGetAllApiUrl,
+  pressApiUrl,
+  publicDisclosuresApiUrl,
+  webcastsApiUrl,
+} from "../../constants";
 import { MdError } from "react-icons/md";
 import axios from "axios";
 import ListItem from "../../components/listItem/ListItem";
@@ -13,8 +22,8 @@ import Dropdown from "../../components/dropdown/Dropdown";
 const Press = ({ heading }) => {
   const { translate } = useTranslation();
   const isPressPage = heading === "News";
-  const isElectronicDisclosurePage = heading === "Electronic Disclosures"
-  const isWebcastsPage = heading === "Webcasts and Presentations"
+  const isElectronicDisclosurePage = heading === "Electronic Disclosures";
+  const isWebcastsPage = heading === "Webcasts and Presentations";
   const [list, setList] = useState({
     fetching: false,
     success: false,
@@ -25,9 +34,17 @@ const Press = ({ heading }) => {
   const { pageNo = 1 } = location.state || {};
 
   const [pageNumber, setPageNumber] = useState(pageNo);
-  const order = sessionStorage.getItem('sort')
+  const order = sessionStorage.getItem("sort");
   const [sortOrder, setSortOrder] = useState(order || "Newest");
 
+  function isValidJSON(str) {
+    try {
+      JSON.parse(str);
+      return true;
+    } catch {
+      return false;
+    }
+  }
   const fetchData = async () => {
     setList({ ...list, fetching: true, success: false, data: [], error: null });
     try {
@@ -37,16 +54,29 @@ const Press = ({ heading }) => {
         sort: sortOrder === "Newest" ? 1 : 0,
       };
       const url = isPressPage
-        ? pressApiUrl(params)
-        : isElectronicDisclosurePage ?
-        ElectronicDisclosuresApiUrl(params) :
-        isWebcastsPage ? webcastsApiUrl(params) :
-        publicDisclosuresApiUrl(params);
+        ? dashboardPressGetAllApiUrl(params)
+        : isElectronicDisclosurePage
+        ? dashboardElectronicDisclosuresGetAllApiUrl(params)
+        : isWebcastsPage
+        ? dashboardWebcastsGetAllApiUrl(params)
+        : dashboardPublicDisclosuresGetAllApiUrl(params);
       const response = await axios.get(url);
       if (response.status === 200) {
         setList({ ...list, fetching: false, success: true, error: null });
-        if (response.data && response.data.data) {
-          setList({ ...list, success: true, data: response.data });
+        // if (response.data && response.data.data) {
+        //   setList({ ...list, success: true, data: response.data });
+        // }
+        if (response.status === 200) {
+          setList({ ...list, fetching: false, success: true, error: null });
+          if (response.data) {
+            const data = response.data
+              ?.filter((item) => isValidJSON(item.data))
+              .map((item) => ({
+                ...JSON.parse(item.data),
+                ID: item.id,
+              }));
+            setList({ ...list, success: true, data: { data: data } });
+          }
         }
       }
     } catch (error) {
@@ -56,7 +86,7 @@ const Press = ({ heading }) => {
     }
   };
   const handleDropdown = (value) => {
-    sessionStorage.setItem('sort',value)
+    sessionStorage.setItem("sort", value);
     setSortOrder(value);
   };
   useEffect(() => {
@@ -72,7 +102,15 @@ const Press = ({ heading }) => {
       </Link>
       <div className="heading">
         <h1>{`${translate(
-          `${isPressPage ? "pressDetails" : isElectronicDisclosurePage ? "electronicDisclosures" : isWebcastsPage ? "webcasts" : "publicDisclosures"}.title`
+          `${
+            isPressPage
+              ? "pressDetails"
+              : isElectronicDisclosurePage
+              ? "electronicDisclosures"
+              : isWebcastsPage
+              ? "webcasts"
+              : "publicDisclosures"
+          }.title`
         )}`}</h1>
       </div>
       <div className="content">
@@ -84,7 +122,7 @@ const Press = ({ heading }) => {
           <div className="list-container">
             {list?.data?.data && list?.data?.data?.length > 0 ? (
               <>
-                <Dropdown value={sortOrder} onChange={handleDropdown}/>
+                <Dropdown value={sortOrder} onChange={handleDropdown} />
                 {list.data?.data?.map((item) => {
                   return (
                     <ListItem

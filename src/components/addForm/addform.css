@@ -3,7 +3,11 @@
   grid-template-columns: 1fr 1fr;
   flex-direction: column;
   padding-top: 40px;
+  height: 70vh;
+  overflow-y: auto;
+  margin-bottom: 20px;
 }
+
 .add-form {
   width: 100%;
   height: 90vh;
@@ -69,8 +73,7 @@ input[type="text"]:focus {
   }
   .add-form-fields {
     grid-template-columns: 1fr;
-    height: 70vh;
-    overflow-y: auto;
+
     padding: 20px 0px;
     margin-top: 20px;
   }

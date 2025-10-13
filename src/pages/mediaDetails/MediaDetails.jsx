@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { FaArrowLeft } from 'react-icons/fa';
-import { useTranslation } from '../../context/TranslationContext';
-import axios from 'axios';
-import { mediaApiUrl } from '../../constants';
-import Loader from '../../components/loader/Loader';
-import { MdError } from 'react-icons/md';
-import VideoPlayer from '../../components/videoPlayer/VideoPlayer';
-import Card from '../../components/card/Card';
-import './mediaDetails.css';
-import moment from 'moment';
-import { isEmpty } from '../../utils/helpers';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+import { useTranslation } from "../../context/TranslationContext";
+import axios from "axios";
+import { dashboardMediaGetAllApiUrl, mediaApiUrl } from "../../constants";
+import Loader from "../../components/loader/Loader";
+import { MdError } from "react-icons/md";
+import VideoPlayer from "../../components/videoPlayer/VideoPlayer";
+import Card from "../../components/card/Card";
+import "./mediaDetails.css";
+import moment from "moment";
+import { isEmpty } from "../../utils/helpers";
 
 const MediaDetails = () => {
   const { translate, language } = useTranslation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const idFromUrl = searchParams.get('id');
+  const idFromUrl = searchParams.get("id");
   const pageNoFromUrl = searchParams.get("pageNo") || 1;
 
   const [mediaData, setMediaData] = useState({
@@ -27,39 +27,59 @@ const MediaDetails = () => {
   });
 
   const [currentVideo, setCurrentVideo] = useState(null);
-
+  function isValidJSON(str) {
+    try {
+      JSON.parse(str);
+      return true;
+    } catch {
+      return false;
+    }
+  }
   const fetchData = async () => {
-    setMediaData({ ...mediaData, fetching: true, success: false, data: [], error: null });
+    setMediaData({
+      ...mediaData,
+      fetching: true,
+      success: false,
+      data: [],
+      error: null,
+    });
     try {
       const params = {
         limit: 10,
         page: pageNoFromUrl,
       };
-      const response = await axios.get(mediaApiUrl(params));
-      
-      if (response.status === 200 && response.data?.data) {
-        const allData = response.data.data;
+      const response = await axios.get(dashboardMediaGetAllApiUrl(params));
+
+      if (response.status === 200 && response.data) {
+        const allData = response.data
+          ?.filter((item) => isValidJSON(item.data))
+          .map((item) => ({
+            ...JSON.parse(item.data),
+            id: item.id,
+          }));
         // Find the current video
-        const current = allData.find(item => item.id.toString() === idFromUrl);
-        
+        const current = allData.find(
+          (item) => item.id.toString() === idFromUrl
+        );
+
         setMediaData({
           fetching: false,
           success: true,
           data: allData,
-          error: null
+          error: null,
         });
-        
+
         if (current) {
           setCurrentVideo(current);
         }
       }
     } catch (error) {
-      console.error('Error fetching media data:', error);
+      console.error("Error fetching media data:", error);
       setMediaData({
         fetching: false,
         success: false,
         data: [],
-        error: error.message || 'Failed to fetch media data'
+        error: error.message || "Failed to fetch media data",
       });
     }
   };
@@ -68,9 +88,8 @@ const MediaDetails = () => {
     window.scrollTo(0, 0);
     if (idFromUrl) {
       fetchData();
-    }
-    else{
-      navigate('/media');
+    } else {
+      navigate("/media");
     }
   }, [idFromUrl]);
 
@@ -101,7 +120,7 @@ const MediaDetails = () => {
 
   // Get up to 4 related videos, excluding the current video
   const relatedVideos = mediaData.data
-    .filter(item => item.id.toString() !== idFromUrl && item.mediaUrl)
+    .filter((item) => item.id.toString() !== idFromUrl && item.mediaUrl)
     .slice(0, 4);
 
   return (
@@ -114,11 +133,22 @@ const MediaDetails = () => {
       <div className="video-section">
         <VideoPlayer url={currentVideo.mediaUrl} />
         <div className="video-info">
-          <h1>{language === "en" ? currentVideo.title : currentVideo.koreanTitle || currentVideo.title}</h1>
-          <span className="date">{moment(currentVideo.date).format("MMMM DD, YYYY")}</span>
+          <h1>
+            {language === "en"
+              ? currentVideo.title
+              : currentVideo.koreanTitle || currentVideo.title}
+          </h1>
+          <span className="date">
+            {moment(currentVideo.date).format("MMMM DD, YYYY")}
+          </span>
           {currentVideo.fullDescription && (
             <div className="video-description">
-              <p>{language === "en" ? currentVideo.fullDescription : currentVideo.koreanDescription || currentVideo.fullDescription}</p>
+              <p>
+                {language === "en"
+                  ? currentVideo.fullDescription
+                  : currentVideo.koreanDescription ||
+                    currentVideo.fullDescription}
+              </p>
             </div>
           )}
         </div>
@@ -128,24 +158,30 @@ const MediaDetails = () => {
         <div className="related-videos">
           <h2>{translate("buttons.moreVideos")}</h2>
           <div className="media-grid">
-            {relatedVideos.map(item => (
+            {relatedVideos.map((item) => (
               <Card
                 key={item.id}
                 thumbnail={item.thumbnail}
-                title={language === "en" ? item.title : item.koreanTitle || item.title}
+                title={
+                  language === "en"
+                    ? item.title
+                    : item.koreanTitle || item.title
+                }
                 subtitle={moment(item.date).format("MMMM DD, YYYY")}
                 link={`/media-details?id=${item.id}`}
                 linkState={{ ...item }}
               />
-                          ))}
-            </div>
-           { relatedVideos.length >= 4 && <Link to="/media" className="view-all-button">
-              {translate("buttons.viewAllMedia")}
-            </Link>}
+            ))}
           </div>
-        )}
-      </div>
-    );
-  };
+          {relatedVideos.length >= 4 && (
+            <Link to="/media" className="view-all-button">
+              {translate("buttons.viewAllMedia")}
+            </Link>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default MediaDetails;

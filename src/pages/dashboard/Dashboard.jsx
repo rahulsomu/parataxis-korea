@@ -39,6 +39,7 @@ const Dashboard = () => {
   }
   return (
     <div className="dashboard">
+      <h1>{translate("buttons.dashboard")}</h1>
       <div className="dashboard-grid">
         {dashboardItems.map((item) => (
           <Link to={item.route} key={item.id}>
