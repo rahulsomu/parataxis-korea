@@ -148,6 +148,8 @@ const DashboardListItem = ({
                 ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
                 : isWebcastsPage
                 ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
+                : isMediaPage
+                ? `/media-details?id=${ID}&pageNo=${pageNumber}`
                 : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
             }
             state={{ ...item, pageNo: pageNumber }}

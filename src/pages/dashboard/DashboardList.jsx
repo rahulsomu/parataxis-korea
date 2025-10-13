@@ -20,6 +20,10 @@ import DashboardListItem from "../../components/dashboardListItem/DashboardListI
 
 const DashboardList = ({ heading }) => {
   const { translate } = useTranslation();
+  const token = sessionStorage.getItem("token");
+  if (!token) {
+    window.location.href = "/admin";
+  }
   const isPressPage = heading === "News";
   const isElectronicDisclosurePage = heading === "Electronic Disclosures";
   const isWebcastsPage = heading === "Webcasts and Presentations";
