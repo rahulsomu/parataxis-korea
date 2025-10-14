@@ -219,6 +219,15 @@ const PressForm = ({ initialFormState, handleChange }) => {
         />
       </div> */}
       <div className="input-field">
+        <label htmlFor="date">Date :</label>
+        <input
+          type="text"
+          id="date"
+          value={initialFormState.date}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="input-field">
         <label htmlFor="imgUrl">Image Url :</label>
         <input
           type="text"
@@ -334,6 +343,15 @@ const MediaForm = ({ initialFormState, handleChange }) => {
           onChange={handleChange}
         />
       </div> */}
+      <div className="input-field">
+        <label htmlFor="date">Date :</label>
+        <input
+          type="text"
+          id="date"
+          value={initialFormState.date}
+          onChange={handleChange}
+        />
+      </div>
       <div className="input-field">
         <label htmlFor="thumbnail">Thumbnail :</label>
         <input
