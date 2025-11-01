@@ -11,6 +11,8 @@ import {
 } from "../../constants";
 import "./addform.css";
 import axios from "axios";
+import HtmlEditor from "../htmlEditor/HtmlEditor";
+import FileUpload from "../fileupload/FileUpload";
 
 export default function AddForm({
   setAddFormVisible,
@@ -39,7 +41,51 @@ export default function AddForm({
   );
   const [formError, setFormError] = useState(null);
 
-  const handleChange = (e) => {
+  const handleChange = (e, fieldName = null, isHtmlEditor = false) => {
+    if (isHtmlEditor) {
+      const value = e;
+      setInitialFormState({ ...initialFormState, [fieldName]: value });
+      return;
+    }
+    if (fieldName == "imgUrl" || fieldName == "thumbnail") {
+      const value = e;
+      setInitialFormState({ ...initialFormState, [fieldName]: value });
+      return;
+    }
+    if (fieldName == "downloadLink1Url") {
+      const value = e;
+      setInitialFormState({
+        ...initialFormState,
+        downloadLink1: {
+          ...initialFormState.downloadLink1,
+          downloadUrl: value,
+        },
+      });
+      return;
+    }
+    if (fieldName == "downloadLink2Url") {
+      const value = e;
+      setInitialFormState({
+        ...initialFormState,
+        downloadLink2: {
+          ...initialFormState.downloadLink2,
+          downloadUrl: value,
+        },
+      });
+      return;
+    }
+    if (fieldName == "downloadLink3Url") {
+      const value = e;
+      setInitialFormState({
+        ...initialFormState,
+        downloadLink3: {
+          ...initialFormState.downloadLink3,
+          downloadUrl: value,
+        },
+      });
+      return;
+    }
+
     const { id, value } = e.target;
     if (id === "downloadLink1filename") {
       setInitialFormState({
@@ -235,6 +281,11 @@ const PressForm = ({ initialFormState, handleChange }) => {
           value={initialFormState.imgUrl}
           onChange={handleChange}
         />
+        <FileUpload
+          value={initialFormState.imgUrl}
+          onChange={handleChange}
+          id="imgUrl"
+        />
       </div>
       <div className="input-field">
         <label htmlFor="heading">Heading :*</label>
@@ -254,22 +305,32 @@ const PressForm = ({ initialFormState, handleChange }) => {
           onChange={handleChange}
         />
       </div>
-      <div className="input-field">
+      <div className="input-field full">
         <label htmlFor="fullDescription">Description :*</label>
-        <input
+        {/* <input
           type="text"
           id="fullDescription"
           value={initialFormState.fullDescription}
           onChange={handleChange}
+        /> */}
+        <HtmlEditor
+          value={initialFormState.fullDescription}
+          onChange={handleChange}
+          id="fullDescription"
         />
       </div>
-      <div className="input-field">
+      <div className="input-field full">
         <label htmlFor="koreanDescription">Korean Description :</label>
-        <input
+        {/* <input
           type="text"
           id="koreanDescription"
           value={initialFormState.koreanDescription}
           onChange={handleChange}
+        /> */}
+        <HtmlEditor
+          value={initialFormState.koreanDescription}
+          onChange={handleChange}
+          id="koreanDescription"
         />
       </div>
 
@@ -290,6 +351,11 @@ const PressForm = ({ initialFormState, handleChange }) => {
           value={initialFormState.downloadLink1.downloadUrl}
           onChange={handleChange}
         />
+        <FileUpload
+          value={initialFormState.downloadLink1.downloadUrl}
+          onChange={handleChange}
+          id="downloadLink1Url"
+        />
       </div>
       <div className="input-field">
         <label htmlFor="downloadLink2filename">Download Link 2 File Name</label>
@@ -308,6 +374,11 @@ const PressForm = ({ initialFormState, handleChange }) => {
           value={initialFormState.downloadLink2.downloadUrl}
           onChange={handleChange}
         />
+        <FileUpload
+          value={initialFormState.downloadLink2.downloadUrl}
+          onChange={handleChange}
+          id="downloadLink2Url"
+        />
       </div>
       <div className="input-field">
         <label htmlFor="downloadLink3filename">Download Link 3 File Name</label>
@@ -325,6 +396,11 @@ const PressForm = ({ initialFormState, handleChange }) => {
           id="downloadLink3Url"
           value={initialFormState.downloadLink3.downloadUrl}
           onChange={handleChange}
+        />
+        <FileUpload
+          value={initialFormState.downloadLink3.downloadUrl}
+          onChange={handleChange}
+          id="downloadLink3Url"
         />
       </div>
     </div>
@@ -359,6 +435,11 @@ const MediaForm = ({ initialFormState, handleChange }) => {
           id="thumbnail"
           value={initialFormState.thumbnail}
           onChange={handleChange}
+        />
+        <FileUpload
+          value={initialFormState.thumbnail}
+          onChange={handleChange}
+          id="thumbnail"
         />
       </div>
       <div className="input-field">

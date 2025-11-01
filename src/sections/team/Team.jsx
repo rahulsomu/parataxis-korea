@@ -10,27 +10,32 @@ const Team = () => {
   const teamMembers = [
     {
       id: "edwardChin",
-      image: 'https://parataxis.sfo2.digitaloceanspaces.com/Photos/ed.e965575d2ba060295ffe.webp',
+      image:
+        "https://parataxis.sfo2.digitaloceanspaces.com/Photos/ed.e965575d2ba060295ffe.webp",
     },
     {
       id: "andrewKim",
-      image: 'https://parataxis.sfo2.digitaloceanspaces.com/Photos/andrew.b02b2454d2440dd11bc1.webp',
+      image: "https://parataxis.sfo2.digitaloceanspaces.com/Photos/andrew2.jpg",
     },
     {
       id: "jamesLee",
-      image: 'https://parataxis.sfo2.digitaloceanspaces.com/Photos/james.42dee4f7382d9663d70c.webp',
+      image:
+        "https://parataxis.sfo2.digitaloceanspaces.com/Photos/james.42dee4f7382d9663d70c.webp",
     },
     {
       id: "joonKeeHong",
-      image: 'https://parataxis.sfo2.digitaloceanspaces.com/Photos/joonkee.5869a05f4ec239a605c9.webp',
+      image:
+        "https://parataxis.sfo2.digitaloceanspaces.com/Photos/joonkee.5869a05f4ec239a605c9.webp",
     },
     {
       id: "anthonyChoi",
-      image: 'https://parataxis.sfo2.digitaloceanspaces.com/Photos/anthony.7034bf6c6dbdce431edc.webp',
+      image:
+        "https://parataxis.sfo2.digitaloceanspaces.com/Photos/anthony.7034bf6c6dbdce431edc.webp",
     },
     {
       id: "hyunIlHwang",
-      image: 'https://parataxis.sfo2.digitaloceanspaces.com/Photos/hyunil.75d850fd5952e74eba2a.webp',
+      image:
+        "https://parataxis.sfo2.digitaloceanspaces.com/Photos/hyunil.75d850fd5952e74eba2a.webp",
     },
   ];
   useEffect(() => {

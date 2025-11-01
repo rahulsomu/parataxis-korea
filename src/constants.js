@@ -126,3 +126,5 @@ export const mediaInitialState = {
   id: "",
   mediaUrl: "",
 };
+
+export const generateSignedUrl = `${API_BASE_URL}/DocumentsStorage/generate-upload-url`;

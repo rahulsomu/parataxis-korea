@@ -23,6 +23,9 @@
   flex-direction: column;
   padding: 10px;
 }
+.input-field.full {
+  grid-column: span 2;
+}
 
 .input-field label {
   display: block;
@@ -92,5 +95,8 @@ input[type="text"]:focus {
   .form-heading {
     font-size: 18px;
     text-align: center;
+  }
+  .input-field.full {
+    grid-column: span 1;
   }
 }
