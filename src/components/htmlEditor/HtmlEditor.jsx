@@ -1,10 +1,11 @@
 // import CKEditor from "ckeditor4-react";
 import React, { useEffect, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import { editorApiKey } from "../../constants";
 
 const HtmlEditor = ({ value, onChange, id }) => {
   const [content, setContent] = useState(value || "");
-  const apikey = process.env.REACT_APP_TINY_API_KEY;
+  const apikey = editorApiKey;
   // const config = {
   //   allowedContent: true,
   //   versionCheck: false,

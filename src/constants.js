@@ -128,3 +128,4 @@ export const mediaInitialState = {
 };
 
 export const generateSignedUrl = `${API_BASE_URL}/DocumentsStorage/generate-upload-url`;
+export const editorApiKey = "r62bd3abd01wts5ledkwv0i9tnsl1mv3i76xlu8lhcctnomf";
