@@ -14,12 +14,15 @@ export default function FileUpload({ value, onChange, id }) {
   const handleUpload = async () => {
     const token = sessionStorage.getItem("token");
     if (!file) return alert("Select a file first");
-
+    const isImage = /^image\/(png|jpe?g|gif|webp|bmp|svg\+xml|tiff?)$/i.test(
+      file.type
+    );
     // Step 1: get signed URL from backend
     const res = await axios.post(
       generateSignedUrl,
       {
         FileName: file.name,
+        folderprefix: isImage ? "Images/" : "Documents/",
         ContentType: file.type,
       },
       {
@@ -39,8 +42,6 @@ export default function FileUpload({ value, onChange, id }) {
     });
     if (uploadRes.status == 200) {
       onChange(fileUrl, id);
-      const isImage = (file) =>
-        /^image\/(png|jpe?g|gif|webp|bmp|svg\+xml|tiff?)$/i.test(file.type);
       if (isImage) setImgUrl(fileUrl);
     }
   };
