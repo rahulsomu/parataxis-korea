@@ -630,7 +630,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 99;
   padding: 40px 20px;
   transition: all 0.3s ease-in-out;
   background-color: transparent;
