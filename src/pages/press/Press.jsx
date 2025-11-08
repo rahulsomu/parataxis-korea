@@ -18,12 +18,14 @@ import { useTranslation } from "../../context/TranslationContext";
 import { Link, useLocation } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import Dropdown from "../../components/dropdown/Dropdown";
+import DartEmbed from "../../components/dartEmbed/DartEmbed";
 
 const Press = ({ heading }) => {
   const { translate } = useTranslation();
   const isPressPage = heading === "News";
   const isElectronicDisclosurePage = heading === "Electronic Disclosures";
   const isWebcastsPage = heading === "Webcasts and Presentations";
+  const isFscDisclosures = heading === "Public FSC Disclosures";
   const [list, setList] = useState({
     fetching: false,
     success: false,
@@ -114,7 +116,9 @@ const Press = ({ heading }) => {
         )}`}</h1>
       </div>
       <div className="content">
-        {list.fetching ? (
+        {isFscDisclosures ? (
+          <DartEmbed />
+        ) : list.fetching ? (
           <div className="loader">
             <Loader />
           </div>
