@@ -413,5 +413,20 @@
         "en":"Webcasts and Presentations",
         "kr":"웹캐스트 및 발표"
     }
+  },
+  "promotionText":{
+    "main" :{
+      "en":"Parataxis Korea Co., Ltd. – Registration for IR Presentation on November 17. Click ",
+      "kr":"파라택시스코리아(주) 11월 17일 IR설명회. "
+    },
+    "link":{
+      "en":"here",
+      "kr":"여기를"
+    },
+    "end":{
+      "en":" to signup.",
+      "kr":" 클릭하여 신청하세요"
+    }
+    
   }
 } 
