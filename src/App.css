@@ -147,6 +147,7 @@ body {
   .promotion-text {
     margin-top: 15px;
     background: none;
+    font-size: 13px;
   }
 
   .animated-text-wrapper {
@@ -737,7 +738,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 110px 20px;
+  padding: 151px 20px;
   position: sticky;
   top: 100px;
 }
