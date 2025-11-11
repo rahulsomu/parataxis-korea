@@ -29,7 +29,26 @@ body {
   justify-content: space-between; /* Change to space-between to push content apart */
   padding: 80px 0; /* Add padding to ensure content doesn't touch edges */
 }
+.promotion-text {
+  z-index: 999;
+  margin-top: 40px;
+  width: 100%;
+  background-color: #0213229e;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  opacity: 0.8;
+  padding: 10px;
+  transition: 0.2s ease;
+}
 
+.promotion-text:hover {
+  background: #021322fa;
+}
+.promotion-text a {
+  color: #44b3ff;
+  font-weight: bold;
+}
 .hero-video {
   position: absolute;
   top: 0;
@@ -122,6 +141,9 @@ body {
 @media (max-width: 768px) {
   .hero-content {
     padding: 0 20px;
+  }
+  .promotion-text {
+    margin-top: 15px;
   }
 
   .animated-text-wrapper {
