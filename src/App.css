@@ -31,9 +31,14 @@ body {
 }
 .promotion-text {
   z-index: 999;
-  margin-top: 40px;
+  margin-top: 20px;
   width: 100%;
-  background-color: #0213229e;
+  background: linear-gradient(
+    90deg,
+    rgba(42, 123, 155, 0) 0%,
+    rgba(2, 19, 34, 1) 50%,
+    rgba(237, 221, 83, 0) 100%
+  );
   text-align: center;
   font-size: 16px;
   color: white;
@@ -42,9 +47,6 @@ body {
   transition: 0.2s ease;
 }
 
-.promotion-text:hover {
-  background: #021322fa;
-}
 .promotion-text a {
   color: #44b3ff;
   font-weight: bold;
@@ -140,6 +142,7 @@ body {
   }
   .promotion-text {
     margin-top: 15px;
+    background: none;
   }
 
   .animated-text-wrapper {

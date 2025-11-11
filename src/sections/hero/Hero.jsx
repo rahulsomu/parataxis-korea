@@ -13,18 +13,6 @@ const Hero = () => {
   };
   return (
     <section className="hero-section">
-      <div className="promotion-text">
-        <p>
-          {translate("promotionText.main")}{" "}
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSf_g2MoKOjYAA4jWBosxfaZYrODaJrtFmPNvUlz54cccUxuUw/viewform"
-            target="_blank"
-          >
-            {translate("promotionText.link")}
-          </a>
-          {translate("promotionText.end")}
-        </p>
-      </div>
       <video
         autoPlay
         muted
