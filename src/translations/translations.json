@@ -416,16 +416,16 @@
   },
   "promotionText":{
     "main" :{
-      "en":"Parataxis Korea Co., Ltd. – Registration for IR Presentation on November 17. Click ",
-      "kr":"파라택시스코리아(주) 11월 17일 IR설명회. "
+      "en":"On November 17, we will review Q3 results and our strategic outlook. Join us ",
+      "kr":"11월 17일 IR 설명회에 참여하여 3분기 실적과 향후 전략을 확인하세요. "
     },
     "link":{
-      "en":"here",
+      "en":"Here",
       "kr":"여기를"
     },
     "end":{
-      "en":" to signup.",
-      "kr":" 클릭하여 신청하세요"
+      "en":" ",
+      "kr":" 클릭하여 신청하세요."
     }
     
   }
