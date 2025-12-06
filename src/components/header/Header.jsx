@@ -160,17 +160,27 @@ const Header = () => {
           <NavLinks />
         </div>
       </nav>
-      {!loading && !error && data && (
-        <div
-          className="promotion-text"
-          dangerouslySetInnerHTML={{
-            __html:
-              language == "kr"
-                ? sanitizeSheetHTML(data.koreanBannerText)
-                : sanitizeSheetHTML(data.bannerText),
-          }}
-        />
-      )}
+      {!loading &&
+        !error &&
+        data &&
+        (language == "kr" && data.koreanBannerText ? (
+          <div
+            className="promotion-text"
+            dangerouslySetInnerHTML={{
+              __html: sanitizeSheetHTML(data.koreanBannerText),
+            }}
+          />
+        ) : (
+          language == "en" &&
+          data.bannerText && (
+            <div
+              className="promotion-text"
+              dangerouslySetInnerHTML={{
+                __html: sanitizeSheetHTML(data.bannerText),
+              }}
+            />
+          )
+        ))}
       {/* <p>
           {translate("promotionText.main")}{" "}
           <a
