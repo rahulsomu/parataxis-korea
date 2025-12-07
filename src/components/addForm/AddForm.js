@@ -155,10 +155,13 @@ export default function AddForm({
       ? {
           id: existingData.ID,
           data: JSON.stringify(formattedPayload),
+          date: new Date().toISOString(),
         }
       : {
           data: JSON.stringify(formattedPayload),
+          date: new Date().toISOString(),
         };
+
     const url = isPressPage
       ? pressDataApiUrl
       : isElectronicDisclosurePage
