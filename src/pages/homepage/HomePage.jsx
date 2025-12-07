@@ -8,11 +8,11 @@ import Contact from "../../sections/contact/Contact";
 import InvestmentPhilosphy from "../../sections/investment-philosphy/InvestmentPhilosphy";
 import { useLocation } from "react-router-dom";
 import Modal from "../../components/modal/Modal";
-import EmailPopup from "../../components/emailPopup/EmailPopup";
+// import EmailPopup from "../../components/emailPopup/EmailPopup";
 
 const HomePage = () => {
   const location = useLocation();
-  const [showEmailPopup, setShowEmailPopup] = React.useState(false);
+  // const [showEmailPopup, setShowEmailPopup] = React.useState(false);
 
   useEffect(() => {
     if (location.hash) {
@@ -22,21 +22,21 @@ const HomePage = () => {
       }
     }
   }, [location]);
-  useEffect(() => {
-    const isSubscribed = sessionStorage.getItem("subscribed");
-    if (isSubscribed === "true") return;
-    const timer = setTimeout(() => {
-      setShowEmailPopup(true);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const isSubscribed = sessionStorage.getItem("subscribed");
+  //   if (isSubscribed === "true") return;
+  //   const timer = setTimeout(() => {
+  //     setShowEmailPopup(true);
+  //   }, 5000);
+  //   return () => clearTimeout(timer);
+  // }, []);
   return (
     <>
-      {showEmailPopup ? (
+      {/* {showEmailPopup ? (
         <Modal onClose={() => setShowEmailPopup(false)} maxWidth="600px">
           <EmailPopup setShowEmailPopup={setShowEmailPopup} />
         </Modal>
-      ) : null}
+      ) : null} */}
       <Hero />
       <div className="scrolling-sections-container">
         <About />
