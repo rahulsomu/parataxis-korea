@@ -184,7 +184,7 @@ const PressDetails = ({ title }) => {
                   ? koreanHeading
                   : heading}
               </h1>
-              <span>{moment(date).format(DATE_FORMAT)}</span>
+              <span>{moment(date, "MM-DD-YYYY").format(DATE_FORMAT)}</span>
               {downloadLink ? (
                 <a className="download" href={downloadLink} download>
                   <BsFileEarmarkPdf />

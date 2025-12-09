@@ -128,7 +128,7 @@ const WebcastsDetails = () => {
               : currentVideo.koreanTitle || currentVideo.title}
           </h1>
           <span className="date">
-            {moment(currentVideo.date).format(DATE_FORMAT)}
+            {moment(currentVideo.date, "MM-DD-YYYY").format(DATE_FORMAT)}
           </span>
           {currentVideo.fullDescription && (
             <div className="video-description">
@@ -156,7 +156,7 @@ const WebcastsDetails = () => {
                     ? item.title
                     : item.koreanTitle || item.title
                 }
-                subtitle={moment(item.date).format(DATE_FORMAT)}
+                subtitle={moment(item.date, "MM-DD-YYYY").format(DATE_FORMAT)}
                 link={`/webcasts-details?id=${item.id}`}
                 linkState={{ ...item }}
               />

@@ -17,7 +17,7 @@ const MediaItem = ({ item, pageNumber }) => {
     <Card
       thumbnail={thumbnail}
       title={language === "en" ? title : koreanTitle || title}
-      subtitle={moment(date).format(DATE_FORMAT)}
+      subtitle={moment(date, "MM-DD-YYYY").format(DATE_FORMAT)}
       link={`/media-details?id=${id}&pageNo=${pageNumber}`}
       linkState={{ ...item, pageNo: pageNumber }}
     />

@@ -27,7 +27,7 @@ const ListItem = ({
   return (
     <RevealAnimation>
       <div className="list-item">
-        <span>{moment(date).format(DATE_FORMAT)}</span>
+        <span>{moment(date, "MM-DD-YYYY").format(DATE_FORMAT)}</span>
         <Link
           to={
             isPressPage

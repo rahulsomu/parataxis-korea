@@ -1,5 +1,7 @@
 import moment from "moment";
 
+export const DATE_FORMAT = "YYYY-MM-DD";
+
 export const API_BASE_URL =
   "https://parataxiskorea-app-rxyyk.ondigitalocean.app/api";
 
@@ -92,7 +94,7 @@ export const mediaDataApiUrl = `${API_BASE_URL}/v2/ParataxisMediaV2`;
 export const saveEmail = `${API_BASE_URL}/ParataxisPopupEmail/SaveEmail`;
 
 export const pressInitialState = {
-  date: moment().format("MM-DD-YYYY"),
+  date: moment().format(DATE_FORMAT),
   imgUrl: "",
   heading: "",
   fullDescription: "",
@@ -117,7 +119,7 @@ export const pressInitialState = {
 };
 
 export const mediaInitialState = {
-  date: moment().format("MM-DD-YYYY"),
+  date: moment().format(DATE_FORMAT),
   thumbnail: "",
   heading: "",
   fullDescription: "",
@@ -131,4 +133,3 @@ export const generateSignedUrl = `${API_BASE_URL}/DocumentsStorage/generate-uplo
 export const editorApiKey = "r62bd3abd01wts5ledkwv0i9tnsl1mv3i76xlu8lhcctnomf";
 export const sheetUrl =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6RNI3a1w4F2-wwDS6r5t9NNkwSJCODVmo15zi3t9s5yMN9gJ7gdj-P2lpTh8GkngRglzTRZU1PdiZ/pub?gid=1874007269&output=csv";
-export const DATE_FORMAT = "YYYY-MM-DD";

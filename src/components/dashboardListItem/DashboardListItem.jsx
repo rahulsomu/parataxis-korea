@@ -9,6 +9,7 @@ import { useTranslation } from "../../context/TranslationContext";
 import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import {
+  DATE_FORMAT,
   electronicNoticesDataApiUrl,
   mediaDataApiUrl,
   pressDataApiUrl,
@@ -115,7 +116,7 @@ const DashboardListItem = ({
           </Modal>
         ) : null}
 
-        <span>{moment(date).format("MMMM DD,YYYY")}</span>
+        <span>{moment(date, "MM-DD-YYYY").format(DATE_FORMAT)}</span>
 
         <Link
           to={
