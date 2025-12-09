@@ -3,7 +3,11 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { useTranslation } from "../../context/TranslationContext";
 import axios from "axios";
-import { dashboardMediaGetAllApiUrl, mediaApiUrl } from "../../constants";
+import {
+  dashboardMediaGetAllApiUrl,
+  DATE_FORMAT,
+  mediaApiUrl,
+} from "../../constants";
 import Loader from "../../components/loader/Loader";
 import { MdError } from "react-icons/md";
 import VideoPlayer from "../../components/videoPlayer/VideoPlayer";
@@ -139,7 +143,7 @@ const MediaDetails = () => {
               : currentVideo.koreanTitle || currentVideo.title}
           </h1>
           <span className="date">
-            {moment(currentVideo.date).format("MMMM DD, YYYY")}
+            {moment(currentVideo.date).format(DATE_FORMAT)}
           </span>
           {currentVideo.fullDescription && (
             <div className="video-description">
@@ -167,7 +171,7 @@ const MediaDetails = () => {
                     ? item.title
                     : item.koreanTitle || item.title
                 }
-                subtitle={moment(item.date).format("MMMM DD, YYYY")}
+                subtitle={moment(item.date).format(DATE_FORMAT)}
                 link={`/media-details?id=${item.id}`}
                 linkState={{ ...item }}
               />

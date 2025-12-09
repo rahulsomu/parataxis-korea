@@ -22,6 +22,7 @@ import {
   pressApiUrl,
   publicDisclosuresApiUrl,
   webcastsApiUrl,
+  DATE_FORMAT,
 } from "../../constants";
 import axios from "axios";
 import Loader from "../../components/loader/Loader";
@@ -183,7 +184,7 @@ const PressDetails = ({ title }) => {
                   ? koreanHeading
                   : heading}
               </h1>
-              <span>{moment(date).format("MMMM DD,YYYY")}</span>
+              <span>{moment(date).format(DATE_FORMAT)}</span>
               {downloadLink ? (
                 <a className="download" href={downloadLink} download>
                   <BsFileEarmarkPdf />

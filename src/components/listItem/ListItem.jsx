@@ -6,23 +6,38 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import RevealAnimation from "../RevealAnimation";
 import { useTranslation } from "../../context/TranslationContext";
+import { DATE_FORMAT } from "../../constants";
 
-const ListItem = ({ item, isPressPage, pageNumber, isElectronicDisclosurePage, isWebcastsPage}) => {
+const ListItem = ({
+  item,
+  isPressPage,
+  pageNumber,
+  isElectronicDisclosurePage,
+  isWebcastsPage,
+}) => {
   const {
     date,
     heading,
     downloadLink,
     koreanHeading,
     downloadLinks = [],
-    ID
+    ID,
   } = item;
   const { language, translate } = useTranslation();
   return (
     <RevealAnimation>
       <div className="list-item">
-        <span>{moment(date).format("MMMM DD,YYYY")}</span>
+        <span>{moment(date).format(DATE_FORMAT)}</span>
         <Link
-          to={isPressPage ? `/press-details?id=${ID}&pageNo=${pageNumber}` : isElectronicDisclosurePage ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}` : isWebcastsPage ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}` : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`}
+          to={
+            isPressPage
+              ? `/press-details?id=${ID}&pageNo=${pageNumber}`
+              : isElectronicDisclosurePage
+              ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+              : isWebcastsPage
+              ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
+              : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+          }
           state={{ ...item, pageNo: pageNumber }}
         >
           <p>
@@ -35,7 +50,15 @@ const ListItem = ({ item, isPressPage, pageNumber, isElectronicDisclosurePage, i
         </Link>
         <div className="press-buttons">
           <Link
-            to={isPressPage ? `/press-details?id=${ID}&pageNo=${pageNumber}` : isElectronicDisclosurePage ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}` : isWebcastsPage ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}` : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`}
+            to={
+              isPressPage
+                ? `/press-details?id=${ID}&pageNo=${pageNumber}`
+                : isElectronicDisclosurePage
+                ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+                : isWebcastsPage
+                ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
+                : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+            }
             state={{ ...item, pageNo: pageNumber }}
           >
             <span>{translate("buttons.readMore")}</span>
