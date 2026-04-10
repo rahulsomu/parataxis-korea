@@ -28,6 +28,23 @@ const WebcastsDetails = () => {
 
   const [currentVideo, setCurrentVideo] = useState(null);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    if (language === "en") {
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    } else {
+      return date.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    }
+  };
+
   const fetchData = async () => {
     setWebcastsData({
       ...webcastsData,
@@ -128,7 +145,7 @@ const WebcastsDetails = () => {
               : currentVideo.koreanTitle || currentVideo.title}
           </h1>
           <span className="date">
-            {moment(currentVideo.date, "MM-DD-YYYY").format(DATE_FORMAT)}
+            {formatDate(currentVideo.publishDate || currentVideo.date)}
           </span>
           {currentVideo.fullDescription && (
             <div className="video-description">
@@ -156,7 +173,7 @@ const WebcastsDetails = () => {
                     ? item.title
                     : item.koreanTitle || item.title
                 }
-                subtitle={moment(item.date, "MM-DD-YYYY").format(DATE_FORMAT)}
+                subtitle={formatDate(item.publishDate || item.date)}
                 link={`/webcasts-details?id=${item.id}`}
                 linkState={{ ...item }}
               />

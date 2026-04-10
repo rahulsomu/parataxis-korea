@@ -22,21 +22,38 @@ const ListItem = ({
     koreanHeading,
     downloadLinks = [],
     ID,
+    publishDate,
   } = item;
   const { language, translate } = useTranslation();
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    if (language === "en") {
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    } else {
+      return date.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    }
+  };
   return (
     <RevealAnimation>
       <div className="list-item">
-        <span>{moment(date, "MM-DD-YYYY").format(DATE_FORMAT)}</span>
+        <span>{formatDate(publishDate || date)}</span>
         <Link
           to={
             isPressPage
               ? `/press-details?id=${ID}&pageNo=${pageNumber}`
               : isElectronicDisclosurePage
-              ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
-              : isWebcastsPage
-              ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
-              : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+                ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+                : isWebcastsPage
+                  ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
+                  : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
           }
           state={{ ...item, pageNo: pageNumber }}
         >
@@ -44,8 +61,8 @@ const ListItem = ({
             {language === "en"
               ? heading
               : koreanHeading
-              ? koreanHeading
-              : heading}
+                ? koreanHeading
+                : heading}
           </p>
         </Link>
         <div className="press-buttons">
@@ -54,10 +71,10 @@ const ListItem = ({
               isPressPage
                 ? `/press-details?id=${ID}&pageNo=${pageNumber}`
                 : isElectronicDisclosurePage
-                ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
-                : isWebcastsPage
-                ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
-                : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+                  ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+                  : isWebcastsPage
+                    ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
+                    : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
             }
             state={{ ...item, pageNo: pageNumber }}
           >

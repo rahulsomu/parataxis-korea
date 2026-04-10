@@ -5,9 +5,26 @@ import { useTranslation } from "../../context/TranslationContext";
 import { DATE_FORMAT } from "../../constants";
 
 const MediaItem = ({ item, pageNumber }) => {
-  const { date, koreanTitle, thumbnail, title, id, mediaUrl } = item;
+  const { date, koreanTitle, thumbnail, title, id, mediaUrl, publishDate } =
+    item;
 
   const { language } = useTranslation();
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    if (language === "en") {
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    } else {
+      return date.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    }
+  };
 
   if (!mediaUrl) {
     return null;
@@ -17,7 +34,7 @@ const MediaItem = ({ item, pageNumber }) => {
     <Card
       thumbnail={thumbnail}
       title={language === "en" ? title : koreanTitle || title}
-      subtitle={moment(date, "MM-DD-YYYY").format(DATE_FORMAT)}
+      subtitle={formatDate(publishDate || date)}
       link={`/media-details?id=${id}&pageNo=${pageNumber}`}
       linkState={{ ...item, pageNo: pageNumber }}
     />

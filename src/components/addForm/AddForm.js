@@ -37,7 +37,7 @@ export default function AddForm({
     return mediaInitialState;
   };
   const [initialFormState, setInitialFormState] = useState(
-    existingData ? existingData : getInitalState()
+    existingData ? existingData : getInitalState(),
   );
   const [formError, setFormError] = useState(null);
 
@@ -126,6 +126,9 @@ export default function AddForm({
           downloadUrl: value,
         },
       });
+    } else if (id === "isActive") {
+      const value = e.target.checked;
+      setInitialFormState({ ...initialFormState, isActive: value });
     } else {
       setInitialFormState({ ...initialFormState, [id]: value });
     }
@@ -150,29 +153,33 @@ export default function AddForm({
         { ...initialFormState.downloadLink3 },
       ],
     };
-
+    const { isActive, date, publishDate, ...rest } = formattedPayload;
     const payload = isEditMode
       ? {
           id: existingData.ID,
-          data: JSON.stringify(formattedPayload),
+          data: JSON.stringify(rest),
           date: new Date().toISOString(),
+          isActive: initialFormState.isActive,
+          publishDate: new Date(initialFormState.date).toISOString(),
         }
       : {
-          data: JSON.stringify(formattedPayload),
+          data: JSON.stringify(rest),
           date: new Date().toISOString(),
+          isActive: initialFormState.isActive,
+          publishDate: new Date(initialFormState.date).toISOString(),
         };
 
     const url = isPressPage
       ? pressDataApiUrl
       : isElectronicDisclosurePage
-      ? electronicNoticesDataApiUrl
-      : isWebcastsPage
-      ? webcastsDataApiUrl
-      : isPublicDisclosurePage
-      ? publicDisclosuresDataApiUrl
-      : isMediaPage
-      ? mediaDataApiUrl
-      : null;
+        ? electronicNoticesDataApiUrl
+        : isWebcastsPage
+          ? webcastsDataApiUrl
+          : isPublicDisclosurePage
+            ? publicDisclosuresDataApiUrl
+            : isMediaPage
+              ? mediaDataApiUrl
+              : null;
     const method = isEditMode ? "put" : "post";
     if (!url) {
       setFormError("Something went wrong. Please try again.");
@@ -267,6 +274,16 @@ const PressForm = ({ initialFormState, handleChange }) => {
           onChange={handleChange}
         />
       </div> */}
+      <div className="input-field">
+        <label htmlFor="date">Active:</label>
+        <input
+          type="checkbox"
+          id="isActive"
+          checked={initialFormState.isActive}
+          onChange={handleChange}
+          style={{ marginRight: "auto", width: "30px", height: "30px" }}
+        />
+      </div>
       <div className="input-field">
         <label htmlFor="date">Date :</label>
         <input
@@ -422,6 +439,16 @@ const MediaForm = ({ initialFormState, handleChange }) => {
           onChange={handleChange}
         />
       </div> */}
+      <div className="input-field">
+        <label htmlFor="date">Active:</label>
+        <input
+          type="checkbox"
+          id="isActive"
+          checked={initialFormState.isActive}
+          onChange={handleChange}
+          style={{ marginRight: "auto", width: "30px", height: "30px" }}
+        />
+      </div>
       <div className="input-field">
         <label htmlFor="date">Date :</label>
         <input

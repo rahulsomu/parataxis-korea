@@ -59,16 +59,17 @@ const DashboardList = ({ heading }) => {
         limit: 10,
         page: pageNumber,
         sort: sortOrder === "Newest" ? 1 : 0,
+        returnOnlyActive: false,
       };
       const url = isPressPage
         ? dashboardPressGetAllApiUrl(params)
         : isElectronicDisclosurePage
-        ? dashboardElectronicDisclosuresGetAllApiUrl(params)
-        : isWebcastsPage
-        ? dashboardWebcastsGetAllApiUrl(params)
-        : isMediaPage
-        ? dashboardMediaGetAllApiUrl(params)
-        : dashboardPublicDisclosuresGetAllApiUrl(params);
+          ? dashboardElectronicDisclosuresGetAllApiUrl(params)
+          : isWebcastsPage
+            ? dashboardWebcastsGetAllApiUrl(params)
+            : isMediaPage
+              ? dashboardMediaGetAllApiUrl(params)
+              : dashboardPublicDisclosuresGetAllApiUrl(params);
       const response = await axios.get(url);
       if (response.status === 200) {
         setList({ ...list, fetching: false, success: true, error: null });
@@ -78,6 +79,8 @@ const DashboardList = ({ heading }) => {
             .map((item) => ({
               ...JSON.parse(item.data),
               ID: item.id,
+              isActive: item.isActive,
+              publishDate: item.publishDate,
             }));
           setList({ ...list, success: true, data: { data: data } });
         }
@@ -110,12 +113,12 @@ const DashboardList = ({ heading }) => {
             isPressPage
               ? "pressDetails"
               : isElectronicDisclosurePage
-              ? "electronicDisclosures"
-              : isWebcastsPage
-              ? "webcasts"
-              : isMediaPage
-              ? "media"
-              : "publicDisclosures"
+                ? "electronicDisclosures"
+                : isWebcastsPage
+                  ? "webcasts"
+                  : isMediaPage
+                    ? "media"
+                    : "publicDisclosures"
           }.title`
         )}`}</h1>
       </div>

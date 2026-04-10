@@ -37,12 +37,31 @@ const DashboardListItem = ({
     koreanHeading,
     downloadLinks = [],
     ID,
+    isActive,
+    publishDate,
   } = item;
+
   const { language, translate } = useTranslation();
   const token = sessionStorage.getItem("token");
   const [showDeleteModal, setShowDeleteModal] = React.useState(false);
   const [showEditModal, setShowEditModal] = React.useState(false);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    if (language === "en") {
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    } else {
+      return date.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    }
+  };
   const closeDeleteModal = () => {
     setShowDeleteModal(false);
   };
@@ -55,14 +74,14 @@ const DashboardListItem = ({
     const url = isPressPage
       ? pressDataApiUrl
       : isElectronicDisclosurePage
-      ? electronicNoticesDataApiUrl
-      : isPublicDisclosurePage
-      ? publicDisclosuresDataApiUrl
-      : isMediaPage
-      ? mediaDataApiUrl
-      : isWebcastsPage
-      ? webcastsDataApiUrl
-      : "";
+        ? electronicNoticesDataApiUrl
+        : isPublicDisclosurePage
+          ? publicDisclosuresDataApiUrl
+          : isMediaPage
+            ? mediaDataApiUrl
+            : isWebcastsPage
+              ? webcastsDataApiUrl
+              : "";
     try {
       axios
         .delete(url, {
@@ -84,6 +103,19 @@ const DashboardListItem = ({
   return (
     <RevealAnimation>
       <div className="list-item">
+        {!isActive && (
+          <span
+            style={{
+              fontSize: "12px",
+              fontStyle: "italic",
+              position: "absolute",
+              bottom: "8px",
+              right: "8px",
+            }}
+          >
+            Inactive
+          </span>
+        )}
         {showEditModal ? (
           <AddForm
             setAddFormVisible={setShowEditModal}
@@ -94,7 +126,11 @@ const DashboardListItem = ({
             isWebcastsPage={isWebcastsPage}
             fetchData={fetchData}
             isEditMode={true}
-            existingData={item}
+            existingData={{
+              ...item,
+              date: moment(publishDate).format(DATE_FORMAT),
+              isActive,
+            }}
           />
         ) : null}
         {showDeleteModal ? (
@@ -116,19 +152,19 @@ const DashboardListItem = ({
           </Modal>
         ) : null}
 
-        <span>{moment(date, "MM-DD-YYYY").format(DATE_FORMAT)}</span>
+        <span>{formatDate(publishDate)}</span>
 
         <Link
           to={
             isPressPage
               ? `/press-details?id=${ID}&pageNo=${pageNumber}`
               : isElectronicDisclosurePage
-              ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
-              : isWebcastsPage
-              ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
-              : isPublicDisclosurePage
-              ? `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
-              : `/media-details?id=${ID}&pageNo=${pageNumber}`
+                ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+                : isWebcastsPage
+                  ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
+                  : isPublicDisclosurePage
+                    ? `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+                    : `/media-details?id=${ID}&pageNo=${pageNumber}`
           }
           state={{ ...item, pageNo: pageNumber }}
         >
@@ -136,8 +172,8 @@ const DashboardListItem = ({
             {language === "en"
               ? heading
               : koreanHeading
-              ? koreanHeading
-              : heading}
+                ? koreanHeading
+                : heading}
           </p>
         </Link>
         <div className="press-buttons">
@@ -146,12 +182,12 @@ const DashboardListItem = ({
               isPressPage
                 ? `/press-details?id=${ID}&pageNo=${pageNumber}`
                 : isElectronicDisclosurePage
-                ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
-                : isWebcastsPage
-                ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
-                : isMediaPage
-                ? `/media-details?id=${ID}&pageNo=${pageNumber}`
-                : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+                  ? `/electronic-disclosures-details?id=${ID}&pageNo=${pageNumber}`
+                  : isWebcastsPage
+                    ? `/webcasts-details?id=${ID}&pageNo=${pageNumber}`
+                    : isMediaPage
+                      ? `/media-details?id=${ID}&pageNo=${pageNumber}`
+                      : `/public-disclosures-details?id=${ID}&pageNo=${pageNumber}`
             }
             state={{ ...item, pageNo: pageNumber }}
           >

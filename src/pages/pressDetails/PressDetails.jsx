@@ -47,6 +47,22 @@ const PressDetails = ({ title }) => {
   const location = useLocation();
   const { pageNo = 1 } = location?.state || {};
   const { language, translate } = useTranslation();
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    if (language === "en") {
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    } else {
+      return date.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    }
+  };
   function isValidJSON(str) {
     try {
       JSON.parse(str);
@@ -66,10 +82,10 @@ const PressDetails = ({ title }) => {
       const url = isPressPage
         ? dashboardPressGetAllApiUrl(params)
         : isElectronicDisclosurePage
-        ? dashboardElectronicDisclosuresGetAllApiUrl(params)
-        : isWebcastsPage
-        ? dashboardWebcastsGetAllApiUrl(params)
-        : dashboardPublicDisclosuresGetAllApiUrl(params);
+          ? dashboardElectronicDisclosuresGetAllApiUrl(params)
+          : isWebcastsPage
+            ? dashboardWebcastsGetAllApiUrl(params)
+            : dashboardPublicDisclosuresGetAllApiUrl(params);
       const response = await axios.get(url);
       if (response.status === 200) {
         if (response.data) {
@@ -78,6 +94,8 @@ const PressDetails = ({ title }) => {
             .map((item) => ({
               ...JSON.parse(item.data),
               ID: item.id,
+              isActive: item.isActive,
+              publishDate: item.publishDate,
             }));
           setList({
             fetching: false,
@@ -109,6 +127,8 @@ const PressDetails = ({ title }) => {
     imgUrl = null,
     koreanHeading = "",
     koreanDescription = "",
+    isActive = false,
+    publishDate,
   } = !isEmpty(filteredData) ? filteredData : location.state || {};
 
   const getDescription = () => {
@@ -116,8 +136,8 @@ const PressDetails = ({ title }) => {
       language === "en"
         ? fullDescription
         : koreanDescription
-        ? koreanDescription
-        : fullDescription;
+          ? koreanDescription
+          : fullDescription;
     return desc;
   };
   useEffect(() => {
@@ -129,10 +149,10 @@ const PressDetails = ({ title }) => {
         isPressPage
           ? "/press"
           : isElectronicDisclosurePage
-          ? "/electronic-disclosures"
-          : isWebcastsPage
-          ? "/webcasts"
-          : "/public-disclosures"
+            ? "/electronic-disclosures"
+            : isWebcastsPage
+              ? "/webcasts"
+              : "/public-disclosures"
       );
     }
   }, [idFromUrl]);
@@ -143,10 +163,10 @@ const PressDetails = ({ title }) => {
           isPressPage
             ? "/press"
             : isElectronicDisclosurePage
-            ? "/electronic-disclosures"
-            : isWebcastsPage
-            ? "/webcasts"
-            : "/public-disclosures"
+              ? "/electronic-disclosures"
+              : isWebcastsPage
+                ? "/webcasts"
+                : "/public-disclosures"
         }
         state={{ pageNo: pageNo }}
         className="view-all"
@@ -157,10 +177,10 @@ const PressDetails = ({ title }) => {
             isPressPage
               ? "pressDetails"
               : isElectronicDisclosurePage
-              ? "electronicDisclosures"
-              : isWebcastsPage
-              ? "webcasts"
-              : "publicDisclosures"
+                ? "electronicDisclosures"
+                : isWebcastsPage
+                  ? "webcasts"
+                  : "publicDisclosures"
           }.title`
         )}`}
       </Link>
@@ -181,10 +201,10 @@ const PressDetails = ({ title }) => {
                 {language === "en"
                   ? heading
                   : koreanHeading
-                  ? koreanHeading
-                  : heading}
+                    ? koreanHeading
+                    : heading}
               </h1>
-              <span>{moment(date, "MM-DD-YYYY").format(DATE_FORMAT)}</span>
+              <span>{formatDate(publishDate || date)}</span>
               {downloadLink ? (
                 <a className="download" href={downloadLink} download>
                   <BsFileEarmarkPdf />
@@ -219,10 +239,10 @@ const PressDetails = ({ title }) => {
                   isPressPage
                     ? "/press"
                     : isElectronicDisclosurePage
-                    ? "/electronic-disclosures"
-                    : isWebcastsPage
-                    ? "/webcasts"
-                    : "/public-disclosures"
+                      ? "/electronic-disclosures"
+                      : isWebcastsPage
+                        ? "/webcasts"
+                        : "/public-disclosures"
                 }
                 state={{ pageNo: pageNo }}
                 className="view-all-bottom"
@@ -233,10 +253,10 @@ const PressDetails = ({ title }) => {
                     isPressPage
                       ? "pressDetails"
                       : isElectronicDisclosurePage
-                      ? "electronicDisclosures"
-                      : isWebcastsPage
-                      ? "webcasts"
-                      : "publicDisclosures"
+                        ? "electronicDisclosures"
+                        : isWebcastsPage
+                          ? "webcasts"
+                          : "publicDisclosures"
                   }.title`
                 )}`}
               </Link>

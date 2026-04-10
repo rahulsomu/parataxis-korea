@@ -39,6 +39,22 @@ const MediaDetails = () => {
       return false;
     }
   }
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    if (language === "en") {
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    } else {
+      return date.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    }
+  };
   const fetchData = async () => {
     setMediaData({
       ...mediaData,
@@ -60,6 +76,8 @@ const MediaDetails = () => {
           .map((item) => ({
             ...JSON.parse(item.data),
             id: item.id,
+            isActive: item.isActive,
+            publishDate: item.publishDate,
           }));
         // Find the current video
         const current = allData.find(
@@ -143,7 +161,7 @@ const MediaDetails = () => {
               : currentVideo.koreanTitle || currentVideo.title}
           </h1>
           <span className="date">
-            {moment(currentVideo.date, "MM-DD-YYYY").format(DATE_FORMAT)}
+            {formatDate(currentVideo.publishDate || currentVideo.date)}
           </span>
           {currentVideo.fullDescription && (
             <div className="video-description">
@@ -171,7 +189,7 @@ const MediaDetails = () => {
                     ? item.title
                     : item.koreanTitle || item.title
                 }
-                subtitle={moment(item.date, "MM-DD-YYYY").format(DATE_FORMAT)}
+                subtitle={formatDate(item.publishDate || item.date)}
                 link={`/media-details?id=${item.id}`}
                 linkState={{ ...item }}
               />

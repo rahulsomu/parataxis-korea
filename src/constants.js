@@ -94,6 +94,7 @@ export const mediaDataApiUrl = `${API_BASE_URL}/v2/ParataxisMediaV2`;
 export const saveEmail = `${API_BASE_URL}/ParataxisPopupEmail/SaveEmail`;
 
 export const pressInitialState = {
+  isActive: true,
   date: moment().format(DATE_FORMAT),
   imgUrl: "",
   heading: "",
@@ -119,6 +120,7 @@ export const pressInitialState = {
 };
 
 export const mediaInitialState = {
+  isActive: true,
   date: moment().format(DATE_FORMAT),
   thumbnail: "",
   heading: "",

@@ -56,6 +56,8 @@ const Media = ({ heading }) => {
               .map((item) => ({
                 ...JSON.parse(item.data),
                 id: item.id,
+                isActive: item.isActive,
+                publishDate: item.publishDate,
               }));
             setList({ ...list, success: true, data: { data: data } });
           }

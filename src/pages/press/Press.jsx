@@ -58,10 +58,10 @@ const Press = ({ heading }) => {
       const url = isPressPage
         ? dashboardPressGetAllApiUrl(params)
         : isElectronicDisclosurePage
-        ? dashboardElectronicDisclosuresGetAllApiUrl(params)
-        : isWebcastsPage
-        ? dashboardWebcastsGetAllApiUrl(params)
-        : dashboardPublicDisclosuresGetAllApiUrl(params);
+          ? dashboardElectronicDisclosuresGetAllApiUrl(params)
+          : isWebcastsPage
+            ? dashboardWebcastsGetAllApiUrl(params)
+            : dashboardPublicDisclosuresGetAllApiUrl(params);
       const response = await axios.get(url);
       if (response.status === 200) {
         setList({ ...list, fetching: false, success: true, error: null });
@@ -76,6 +76,8 @@ const Press = ({ heading }) => {
               .map((item) => ({
                 ...JSON.parse(item.data),
                 ID: item.id,
+                isActive: item.isActive,
+                publishDate: item.publishDate,
               }));
             setList({ ...list, success: true, data: { data: data } });
           }
@@ -108,10 +110,10 @@ const Press = ({ heading }) => {
             isPressPage
               ? "pressDetails"
               : isElectronicDisclosurePage
-              ? "electronicDisclosures"
-              : isWebcastsPage
-              ? "webcasts"
-              : "publicDisclosures"
+                ? "electronicDisclosures"
+                : isWebcastsPage
+                  ? "webcasts"
+                  : "publicDisclosures"
           }.title`
         )}`}</h1>
       </div>
