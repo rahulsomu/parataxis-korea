@@ -17,11 +17,11 @@ const Team = () => {
       id: "andrewKim",
       image: "https://parataxis.sfo2.digitaloceanspaces.com/Photos/andrew2.jpg",
     },
-    {
-      id: "jamesLee",
-      image:
-        "https://parataxis.sfo2.digitaloceanspaces.com/Photos/james.42dee4f7382d9663d70c.webp",
-    },
+    // {
+    //   id: "jamesLee",
+    //   image:
+    //     "https://parataxis.sfo2.digitaloceanspaces.com/Photos/james.42dee4f7382d9663d70c.webp",
+    // },
     {
       id: "joonKeeHong",
       image:
