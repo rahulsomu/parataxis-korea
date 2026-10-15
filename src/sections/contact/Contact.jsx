@@ -40,7 +40,7 @@ const Contact = () => {
             <a href="mailto:investor@parataxis.co.kr">
               investor@parataxis.co.kr
             </a>
-            <p>031 8092 3280</p>
+            <p>031 628 8678</p>
           </div>
           <div className="contact-divider"></div>
           <div className="contact-group">
